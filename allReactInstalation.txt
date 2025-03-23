@@ -1,0 +1,13 @@
+1.) Koristim tailwind 
+npm install tailwindcss @tailwindcss/vite
+konfigurises ga tamo sa ovim sranjima u vite.config
+import { defineConfig } from 'vite'
+import tailwindcss from '@tailwindcss/vite'
+export default defineConfig({
+  plugins: [
+    tailwindcss(),
+  ],
+})
+
+2.)npm install -g npm@11.2.0
+3.)npm install @headlessui/react @heroicons/react
