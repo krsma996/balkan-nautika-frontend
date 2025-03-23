@@ -1,7 +1,9 @@
+import { NavBarHeader } from "./homepage-presentation/navbar-header/NavBarHeader"
+
 export const HomePage: React.FC = () => {
     return(
         <div>
-            <p>cao</p>
+           <NavBarHeader/>
         </div>
     )
 }
