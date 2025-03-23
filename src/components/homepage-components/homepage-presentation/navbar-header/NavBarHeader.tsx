@@ -5,7 +5,7 @@ import { NavLinks } from "./NavLinks";
 
 export const NavBarHeader: React.FC = () => {
   return (
-    <Disclosure as="nav" className="bg-white border-gray-200 dark:bg-gray-900">
+    <Disclosure as="nav" className="border-gray-200 dark:bg-gray-900">
       {({ open }) => (
         <>
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
