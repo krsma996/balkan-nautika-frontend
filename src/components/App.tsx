@@ -1,5 +1,4 @@
 import { HomePage } from "./homepage-components/HomePage";
-import { NavBarHeader } from "./homepage-components/homepage-presentation/navbar-header-components/NavBarHeader";
 import "../styles/global.css";
 import "../styles/tailwind.css";
 import "../styles/typografy.css";
