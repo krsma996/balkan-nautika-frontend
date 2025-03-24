@@ -9,7 +9,12 @@ const testShips = Array.from({ length: 36 }, (_, i) => ({
 }));
 
 export const BoatGrid: React.FC = () => {
-  const [selectedShip, setSelectedShip] = useState(null);
+  const [selectedShip, setSelectedShip] = useState<{
+    id: number;
+    imageUrl: string;
+    name: string;
+    description: string;
+  } | null>(null);
 
   return (
     <div className="pt-20 container mx-auto">
