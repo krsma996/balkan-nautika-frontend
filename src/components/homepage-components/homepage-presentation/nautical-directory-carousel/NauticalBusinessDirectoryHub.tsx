@@ -5,7 +5,11 @@ export const NauticalBusinessDirectoryHub: React.FC = () => {
     <div className="pt-18">
       <h1 className="pb-2 ml-30">Biznis prodavci i pravna lica</h1>
       <div className="p-10 bg-white shadow-lg rounded-lg">
-        <div id="controls-carousel"className="relative w-full" data-carousel="static">
+        <div
+          id="controls-carousel"
+          className="relative w-full"
+          data-carousel="static"
+        >
           <div className="relative h-32 overflow-hidden rounded-lg md:h-64">
             <div className="hidden duration-700 ease-in-out" data-carousel-item>
               <img
