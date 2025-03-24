@@ -11,3 +11,4 @@ export default defineConfig({
 
 2.)npm install -g npm@11.2.0
 3.)npm install @headlessui/react @heroicons/react
+4.)npm install swiper@6.8.4

@@ -17,8 +17,8 @@ export const BoatGrid: React.FC = () => {
   } | null>(null);
 
   return (
-    <div className="pt-20 container mx-auto">
-      <div className="grid grid-cols-6 gap-4">
+    <div className="pt-20 container mx-auto ml-30">
+      <div className="grid grid-cols-6 gap-6">
         {testShips.map((ship) => (
           <div
             key={ship.id}
