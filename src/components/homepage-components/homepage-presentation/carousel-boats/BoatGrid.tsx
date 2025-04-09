@@ -17,7 +17,7 @@ export const BoatGrid: React.FC = () => {
   } | null>(null);
 
   return (
-    <div className="pt-20 container mx-auto ml-30">
+    <div className="pt-20 flex  ml-30  w-full max-w-7xl">
       <div className="grid grid-cols-6 gap-6">
         {testShips.map((ship) => (
           <div
