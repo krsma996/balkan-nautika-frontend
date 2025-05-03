@@ -10,7 +10,7 @@ export const NauticalBusinessDirectoryHub: React.FC = () => {
           className="relative w-full"
           data-carousel="static"
         >
-          <div className="relative h-32 overflow-hidden rounded-lg md:h-64">
+          <div className="relative h-30 overflow-hidden rounded-lg md:h-30">
             <div className="hidden duration-700 ease-in-out" data-carousel-item>
               <img
                 src="/docs/images/carousel/carousel-1.svg"
