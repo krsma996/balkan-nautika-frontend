@@ -2,6 +2,7 @@ import { BoatCondition } from "./search-boat-categories/BoatCondition";
 import { BoatFeaturesCheckBox } from "./search-boat-categories/BoatFeaturesCheckBox";
 import { BoatMarks } from "./search-boat-categories/BoatMarks";
 import { BoatModels } from "./search-boat-categories/BoatModels";
+import { BoatPrice } from "./search-boat-categories/BoatPrice";
 import { BoatRegion } from "./search-boat-categories/BoatRegion";
 import { BoatSearchButton } from "./search-boat-categories/BoatSearchButton";
 import { BoatType } from "./search-boat-categories/BoatType";
@@ -16,7 +17,7 @@ export const SearBoatForm: React.FC = () => {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
               <BoatMarks />
               <BoatModels />
-              <input type="number" placeholder="cena" />
+              <BoatPrice/>
               <BoatYear />
               <BoatType />
               <BoatRegion />
