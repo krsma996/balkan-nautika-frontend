@@ -17,7 +17,7 @@ export const NavBarHeader: React.FC = () => {
               href="#"
               className="flex items-center space-x-3 rtl:space-x-reverse"
             >
-              <img src={logo} className="h-13 w-13" alt="Balkan Marina Logo" />
+              <img src={logo} className="h-12 w-12" alt="Balkan Marina Logo" />
               <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
                 Balkan Marina
               </span>

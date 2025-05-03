@@ -4,12 +4,10 @@ import "../styles/tailwind.css";
 import "../styles/typografy.css";
 import "../styles/animations.css";
 
-function App() {
+export const App: React.FC = () => {
   return (
     <>
       <HomePage />
     </>
   );
-}
-
-export default App;
+};
