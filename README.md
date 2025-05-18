@@ -1,1 +1,1 @@
-ja i igor cemo kidamo
+pravim
