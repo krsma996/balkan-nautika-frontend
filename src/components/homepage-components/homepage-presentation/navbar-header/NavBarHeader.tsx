@@ -2,7 +2,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel} from "@headlessui/react"
 import { XMarkIcon, Bars3Icon } from "@heroicons/react/16/solid";
 import logo from "../../../../img/logo1.png";
 import { NavLinks } from "./NavLinks";
-import {faFacebook,faInstagram,faLinkedin,faYoutube} from "@fortawesome/free-brands-svg-icons";
+import {faFacebookF,faInstagram,faLinkedin,faYoutube,faTwitter} from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
@@ -24,17 +24,50 @@ export const NavBarHeader: React.FC = () => {
             </a>
             {/** SOCIAL MEDIA LINKS !!*/}
             <div className="flex items-center space-x-5">
-              <a href="#" className="text-blue-600">
-                <FontAwesomeIcon icon={faFacebook} size="lg" />
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+                className="hover:text-blue-600 text-white"
+              >
+                <FontAwesomeIcon icon={faFacebookF} size="lg" />
               </a>
-              <a href="#" className="text-pink-500">
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+                className="hover:text-pink-600 text-white"
+              >
                 <FontAwesomeIcon icon={faInstagram} size="lg" />
               </a>
-              <a href="#" className="text-blue-800">
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+                className="hover:text-blue-600 text-white"
+              >
                 <FontAwesomeIcon icon={faLinkedin} size="lg" />
               </a>
-              <a href="#" className="text-blue-800">
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+                className="hover:text-red-600 text-white"
+              >
                 <FontAwesomeIcon icon={faYoutube} size="lg" />
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+                className="hover:text-blue-600 text-white"
+              >
+                <FontAwesomeIcon icon={faTwitter} size="lg" />
               </a>
             </div>
 
