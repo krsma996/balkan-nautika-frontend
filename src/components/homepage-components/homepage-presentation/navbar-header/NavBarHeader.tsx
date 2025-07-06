@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const NavBarHeader: React.FC = () => {
   return (
-    <Disclosure as="nav" className="border-gray-200 dark:bg-gray-900">
+    <Disclosure as="nav">
       {({ open }) => (
         <>
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
