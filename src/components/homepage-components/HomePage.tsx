@@ -1,4 +1,4 @@
-import { Footer } from "./Footer";
+import { Footer } from "./homepage-presentation/homepage-footer/Footer";
 import { BoatGrid } from "./homepage-presentation/carousel-boats/BoatGrid";
 import { NauticalBusinessDirectoryHub } from "./homepage-presentation/nautical-directory-carousel/NauticalBusinessDirectoryHub";
 import { NavBarHeader } from "./homepage-presentation/navbar-header/NavBarHeader";
