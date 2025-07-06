@@ -1,10 +1,11 @@
 @import "tailwindcss";
 
 body {
-  background: #dde0ab;
+  background: #F5F5F5;
 }
 nav{
-  background: #252B34;
+  background: #3f4546;
+  
 }
 footer{
   background: #222831;

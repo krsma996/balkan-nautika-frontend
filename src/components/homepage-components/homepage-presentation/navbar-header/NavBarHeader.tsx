@@ -11,7 +11,7 @@ export const NavBarHeader: React.FC = () => {
     <Disclosure as="nav">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+          <div className="mx-auto max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
             {/* Logo */}
             <a
               href="#"
