@@ -2,5 +2,12 @@
 
 h1 {
   @apply text-3xl font-bold text-gray-900;
+  
 }
+
 body, nav, footer { font-family: "Roboto", "Helvetica Neue", Helvetica, sans-serif; }
+
+h2 {
+  @apply text-2xl  text-gray-900;
+  font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, sans-serif;
+}

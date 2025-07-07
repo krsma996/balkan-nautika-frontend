@@ -5,7 +5,7 @@ import {faFacebookF,faInstagram,faLinkedin,faYoutube,faTwitter} from "@fortaweso
 export const Footer: React.FC = () => {
   return (
     <footer>
-      <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+      <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8 mt-7">
         {/* Gornji deo footera: Logo + Linkovi */}
         <div className="md:flex md:justify-between">
           {/* Logo sekcija */}
