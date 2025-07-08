@@ -1,4 +1,4 @@
-export const NauticalBusinessButton:React.FC=()=>{
+export const NauticalBusinessButton=()=>{
     return (
       <>
         <button

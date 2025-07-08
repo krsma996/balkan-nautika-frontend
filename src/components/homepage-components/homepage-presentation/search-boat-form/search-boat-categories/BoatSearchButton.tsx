@@ -1,6 +1,6 @@
 import { FaSearch } from "react-icons/fa"; // koristi react-icons za search ikonu
 
-export const BoatSearchButton: React.FC = () => {
+export const BoatSearchButton=()=> {
   return (
     <div className="col-span-2 md:col-span-1 flex justify-end ml-210">
       <button

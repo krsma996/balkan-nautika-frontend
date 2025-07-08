@@ -6,7 +6,7 @@ import {faFacebookF,faInstagram,faLinkedin,faYoutube,faTwitter} from "@fortaweso
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
-export const NavBarHeader: React.FC = () => {
+export const NavBarHeader = () => {
   return (
     <Disclosure as="nav">
       {({ open }) => (

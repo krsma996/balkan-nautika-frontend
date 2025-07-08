@@ -1,6 +1,6 @@
 
 
-export const BoatPrice: React.FC = () => {
+export const BoatPrice = () => {
   return (
     <>
       <input

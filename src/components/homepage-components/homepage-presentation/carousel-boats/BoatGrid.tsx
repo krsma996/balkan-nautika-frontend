@@ -8,7 +8,7 @@ const testShips = Array.from({ length: 36 }, (_, i) => ({
   description: `Description for ship ${i + 1}`,
 }));
 
-export const BoatGrid: React.FC = () => {
+export const BoatGrid = () => {
   const [selectedShip, setSelectedShip] = useState<{
     id: number;
     imageUrl: string;
@@ -17,7 +17,8 @@ export const BoatGrid: React.FC = () => {
   } | null>(null);
 
   return (
-    <div className="pt-20 flex  ml-30  w-full max-w-7xl">
+    <div className="bg-[#f5f7f8] mt-10">
+    <div className="pb-7 pt-7 flex  ml-30  w-full max-w-7xl">
       <div className="grid grid-cols-6 gap-6">
         {testShips.map((ship) => (
           <div
@@ -60,6 +61,7 @@ export const BoatGrid: React.FC = () => {
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 };

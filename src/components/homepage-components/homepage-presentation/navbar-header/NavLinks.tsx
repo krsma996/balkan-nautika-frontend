@@ -4,7 +4,7 @@ const navLinksData = [
   { navButton: "POSTAVI OGLAS", href: "#" },
 ];
 
-export const NavLinks: React.FC = () => {
+export const NavLinks = () => {
   return (
     <ul className="flex flex-col md:flex-row md:space-x-8">
       {navLinksData.map((item, index) => (

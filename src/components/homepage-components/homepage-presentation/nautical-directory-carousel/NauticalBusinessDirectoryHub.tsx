@@ -1,6 +1,6 @@
 import { NauticalBusinessButton } from "./NauticalBusinessButtons";
 
-export const NauticalBusinessDirectoryHub: React.FC = () => {
+export const NauticalBusinessDirectoryHub = () => {
   return (
     <div className="pt-18">
       <h1 className="pb-2 ml-30">Biznis prodavci i pravna lica</h1>

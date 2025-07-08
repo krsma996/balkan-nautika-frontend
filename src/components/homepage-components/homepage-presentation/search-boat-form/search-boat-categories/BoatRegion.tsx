@@ -1,4 +1,4 @@
-export const BoatRegion:React.FC = () =>{
+export const BoatRegion = () =>{
     return (
       <div>
         <select className="p-2 border rounded w-full max-h-48 overflow-y-auto">

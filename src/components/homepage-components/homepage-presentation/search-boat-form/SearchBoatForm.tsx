@@ -8,7 +8,7 @@ import { BoatSearchButton } from "./search-boat-categories/BoatSearchButton";
 import { BoatType } from "./search-boat-categories/BoatType";
 import { BoatYear } from "./search-boat-categories/BoatYear";
 
-export const SearBoatForm: React.FC = () => {
+export const SearBoatForm = () => {
     return (
       <div className="mt-45 max-w-4xl ml-30">
         <h1 className="pb-2">Pretraga plovila</h1>

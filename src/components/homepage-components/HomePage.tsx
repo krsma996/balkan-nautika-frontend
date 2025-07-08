@@ -5,7 +5,7 @@ import { NavBarHeader } from "./homepage-presentation/navbar-header/NavBarHeader
 import { SearBoatForm } from "./homepage-presentation/search-boat-form/SearchBoatForm";
 import { Activities } from "./homepage-presentation/homepage-activities/Activities";
 
-export const HomePage: React.FC = () => {
+export const HomePage = () => {
   return (
     <>
       <NavBarHeader />

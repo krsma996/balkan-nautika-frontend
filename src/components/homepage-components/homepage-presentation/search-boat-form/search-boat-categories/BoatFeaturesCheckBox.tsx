@@ -1,4 +1,4 @@
-export const BoatFeaturesCheckBox:React.FC=()=>{
+export const BoatFeaturesCheckBox=()=>{
     return (
       <>
         <div className="flex items-center mb-4">

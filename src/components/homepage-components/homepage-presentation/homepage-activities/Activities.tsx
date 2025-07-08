@@ -10,7 +10,7 @@ import ronjenje from "../../../../img/Activities/ronjenje.jpg";
 
 
 
-export const Activities: React.FC = () => {
+export const Activities = () => {
   return (
     <>
       <div className="bg-[#f5f7f8]">

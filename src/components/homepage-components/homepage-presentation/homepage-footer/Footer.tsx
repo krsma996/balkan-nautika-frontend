@@ -2,7 +2,7 @@ import logo from "../../../../img/logo1.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faFacebookF,faInstagram,faLinkedin,faYoutube,faTwitter} from "@fortawesome/free-brands-svg-icons";
 
-export const Footer: React.FC = () => {
+export const Footer = () => {
   return (
     <footer>
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8 mt-7">

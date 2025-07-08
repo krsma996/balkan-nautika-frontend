@@ -4,7 +4,7 @@ import "../styles/tailwind.css";
 import "../styles/typografy.css";
 import "../styles/animations.css";
 
-export const App: React.FC = () => {
+export const App=()=> {
   return (
     <>
       <HomePage />

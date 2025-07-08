@@ -1,4 +1,4 @@
-export const BoatType:React.FC = () =>{
+export const BoatType=()=>{
     return (
       <div className="space-y-2">
         <div className="grid grid-cols-2 gap-4">
