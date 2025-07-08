@@ -1,0 +1,26 @@
+{
+  "sr": {
+    "menu": [
+      "BRZA PRETRAGA",
+      "ISTRAZI",
+      "PONUDA PLOVILA",
+      "DELOVI I OPREMA",
+      "PRODAJ PLOVILO",
+      "SAVETI I VESTI",
+      "PONUDA ZA OGLASAVANJE",
+      "RENTAL / IZNAJMLJIVANJE PLOVILA"
+    ]
+  },
+  "en": {
+    "menu": [
+      "QUICK SEARCH",
+      "EXPLORE",
+      "BOAT OFFER",
+      "PARTS & EQUIPMENT",
+      "SELL A BOAT",
+      "TIPS & NEWS",
+      "ADVERTISING OFFER",
+      "RENTAL / BOAT CHARTER"
+    ]
+  }
+}

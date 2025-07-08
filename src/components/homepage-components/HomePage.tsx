@@ -4,11 +4,13 @@ import { NauticalBusinessDirectoryHub } from "./homepage-presentation/nautical-d
 import { NavBarHeader } from "./homepage-presentation/navbar-header/NavBarHeader";
 import { SearBoatForm } from "./homepage-presentation/search-boat-form/SearchBoatForm";
 import { Activities } from "./homepage-presentation/homepage-activities/Activities";
+import { HomePageDropDownMenuList } from "./homepage-presentation/dropdown-navbar/HomePageDropDownMenuList";
 
 export const HomePage = () => {
   return (
     <>
       <NavBarHeader />
+      <HomePageDropDownMenuList/>
       <SearBoatForm />
       <BoatGrid />
       <NauticalBusinessDirectoryHub />
