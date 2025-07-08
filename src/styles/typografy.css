@@ -2,7 +2,10 @@
 
 h1 {
   @apply text-3xl font-bold text-gray-900;
-  
+  font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 1.7em;
+  color:#222;
+  font-weight: bold;
 }
 
 body, nav, footer { font-family: "Roboto", "Helvetica Neue", Helvetica, sans-serif; }
