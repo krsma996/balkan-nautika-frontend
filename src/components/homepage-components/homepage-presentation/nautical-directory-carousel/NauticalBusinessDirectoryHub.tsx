@@ -2,9 +2,9 @@ import { NauticalBusinessButton } from "./NauticalBusinessButtons";
 
 export const NauticalBusinessDirectoryHub = () => {
   return (
-    <div className="pt-18">
+    <div className="pt-10 pb-10 mx-auto w-full">
       <h1 className="pb-2 ml-30">Biznis prodavci i pravna lica</h1>
-      <div className="p-15 bg-[#f5f7f8] shadow-lg rounded-lg">
+      <div className="p-10 bg-[#f5f7f8] shadow-lg rounded-lg">
         <div
           id="controls-carousel"
           className="relative w-full"
