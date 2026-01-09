@@ -4,7 +4,7 @@ export const NauticalBusinessDirectoryHub = () => {
   return (
     <div className="pt-10 pb-10 mx-auto w-full">
       <h1 className="pb-2 ml-30">Biznis prodavci i pravna lica</h1>
-      <div className="p-10 bg-[#f5f7f8] shadow-lg rounded-lg">
+      <div className="p-10 bg-[#f5f7f8] shadow-lg rounded-lg mx-auto w-full">
         <div
           id="controls-carousel"
           className="relative w-full"
