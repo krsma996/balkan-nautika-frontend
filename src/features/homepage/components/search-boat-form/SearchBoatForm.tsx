@@ -1,11 +1,12 @@
 import { BoatCondition } from "./search-boat-categories/BoatCondition";
 import { BoatFeaturesCheckBox } from "./search-boat-categories/BoatFeaturesCheckBox";
 import { BoatMarks } from "./search-boat-categories/BoatMarks";
+import { BoatMaterialType } from "./search-boat-categories/BoatMaterialType";
 import { BoatModels } from "./search-boat-categories/BoatModels";
 import { BoatPrice } from "./search-boat-categories/BoatPrice";
 import { BoatRegion } from "./search-boat-categories/BoatRegion";
 import { BoatSearchButton } from "./search-boat-categories/BoatSearchButton";
-import { BoatType } from "./search-boat-categories/BoatType";
+import {BoatFuel } from "./search-boat-categories/BoatFuel";
 import { BoatYear } from "./search-boat-categories/BoatYear";
 
 export const SearBoatForm = () => {
@@ -19,9 +20,10 @@ export const SearBoatForm = () => {
               <BoatModels />
               <BoatPrice />
               <BoatYear />
-              <BoatType />
+              <BoatFuel />
               <BoatRegion />
               <BoatCondition />
+              <BoatMaterialType />
               <BoatFeaturesCheckBox />
               <BoatSearchButton />
             </div>
