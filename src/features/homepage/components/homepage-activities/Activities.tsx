@@ -15,7 +15,7 @@ export const Activities = () => {
     <>
       <div className="bg-[#f5f7f8]">
         <div className="mx-auto max-w-screen-xl mt-7">
-          <h2 className="text-2xl font-semibold mb-6 text-center">
+          <h2 className="text-2xl font-semibold mb-6 text-center pt-5">
             Istražite plovidbu po aktivnostima
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
