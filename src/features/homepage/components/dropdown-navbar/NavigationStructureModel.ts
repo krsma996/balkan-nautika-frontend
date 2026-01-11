@@ -1,5 +1,16 @@
+// NavigationStructureModel.ts
 
-export const NAV_ITEMS = [
+export type NavigationItem = {
+  label: string;
+  href: string;
+};
+
+export type NavigationGroup = {
+  label: string;
+  items: NavigationItem[];
+};
+
+export const NAVIGATION_STRUCTURE = [
   {
     label: "BRZA PRETRAGA",
     items: [

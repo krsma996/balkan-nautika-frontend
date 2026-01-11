@@ -1,6 +1,11 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
+import { NavigationGroup } from "./NavigationStructureModel";
 
-export const NavDropdown = ({ label, items }) => {
+
+type Props = NavigationGroup;
+
+
+export const NavigationDropdown = ({ label, items }: Props) => {
   if (!items || items.length === 0) return null;
 
   return (
@@ -9,7 +14,10 @@ export const NavDropdown = ({ label, items }) => {
         {label}
       </MenuButton>
 
-      <MenuItems modal={false} className="absolute left-0 mt-2 w-56 bg-white shadow-lg border z-50">
+      <MenuItems
+        modal={false}
+        className="absolute left-0 mt-2 w-56 bg-white shadow-lg border z-50"
+      >
         {items.map((item) => (
           <MenuItem
             key={item.href}
