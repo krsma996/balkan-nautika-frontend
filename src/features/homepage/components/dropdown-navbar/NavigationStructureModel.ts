@@ -1,5 +1,5 @@
 
-export const NAV_ITEMS = [
+export const NAVIGATION_STRUCTURE = [
   {
     label: "BRZA PRETRAGA",
     items: [

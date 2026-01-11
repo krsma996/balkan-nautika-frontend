@@ -4,13 +4,13 @@ import { NauticalBusinessDirectoryHub } from "./components/nautical-directory-ca
 import { NavBarHeader } from "./components/navbar-header/NavBarHeader";
 import { SearBoatForm } from "./components/search-boat-form/SearchBoatForm";
 import { Activities } from "./components/homepage-activities/Activities";
-import { HomePageDropDownMenuList } from "./components/dropdown-navbar/HomePageDropDownMenuList";
+import { NavbarPrimaryMenu } from "./components/dropdown-navbar/NavbarPrimaryMenu ";
 
 export const HomePage = () => {
   return (
     <>
       <NavBarHeader />
-      <HomePageDropDownMenuList/>
+      <NavbarPrimaryMenu />
       <SearBoatForm />
       <BoatGrid />
       <NauticalBusinessDirectoryHub />
