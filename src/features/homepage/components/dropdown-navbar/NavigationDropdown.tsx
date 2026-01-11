@@ -1,6 +1,11 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
+import { NavigationGroup } from "./NavigationStructureModel";
 
-export const NavigationDropdown = ({ label, items }) => {
+
+type Props = NavigationGroup;
+
+
+export const NavigationDropdown = ({ label, items }: Props) => {
   if (!items || items.length === 0) return null;
 
   return (

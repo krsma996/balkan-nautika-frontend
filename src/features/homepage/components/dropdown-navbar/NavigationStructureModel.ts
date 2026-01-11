@@ -1,3 +1,14 @@
+// NavigationStructureModel.ts
+
+export type NavigationItem = {
+  label: string;
+  href: string;
+};
+
+export type NavigationGroup = {
+  label: string;
+  items: NavigationItem[];
+};
 
 export const NAVIGATION_STRUCTURE = [
   {
