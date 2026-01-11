@@ -17,7 +17,7 @@ export const Footer = () => {
                 alt="Balkan-Marina-Logo-Footer"
               />
               <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-                Balkan Marina
+                NautikaOglasi
               </span>
             </a>
           </div>

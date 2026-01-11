@@ -19,7 +19,7 @@ export const NavBarHeader = () => {
             >
               <img src={logo} className="h-15 w-15" alt="Balkan Marina Logo" />
               <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-                Balkan Marina
+                NautikaOglasi
               </span>
             </a>
             {/** SOCIAL MEDIA LINKS !!*/}
