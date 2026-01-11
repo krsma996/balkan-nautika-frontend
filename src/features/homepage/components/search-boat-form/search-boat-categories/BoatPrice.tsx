@@ -7,7 +7,7 @@ export const BoatPrice = () => {
         type="number"
         id="number-input"
         aria-describedby="helper-text-explanation"
-        className="border border-black text-black text-sm rounded-lg focus:ring-black focus:border-blue-500 block w-full p-2.5 dark:border-black dark:placeholder-black dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        className="border border-black text-black text-sm rounded-lg focus:ring-black focus:border-blue-500 block w-full p-2.3 dark:border-black dark:placeholder-black dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 text-center"
         placeholder="Cena (u evrima) do"
         required
       />

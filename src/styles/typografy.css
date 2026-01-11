@@ -14,3 +14,20 @@ h2 {
   @apply text-2xl  text-gray-900;
   font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, sans-serif;
 }
+
+
+.form-typography {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.form-typography input,
+.form-typography select,
+.form-typography textarea {
+  @apply text-base leading-relaxed text-gray-800;
+}
+
+.form-typography input::placeholder,
+.form-typography textarea::placeholder {
+  @apply text-gray-400;
+}
+
