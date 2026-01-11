@@ -1,18 +1,18 @@
 {
-  "quick_search": "Brza pretraga",
-  "explore": "Istraži",
-  "offer_boats": "Ponuda plovila",
-  "parts_and_equipment": "Delovi i oprema",
-  "sell_boat": "Prodaj plovilo",
-  "news_and_tips": "Saveti i vesti",
-  "advertising_offer": "Ponuda za oglašavanje",
-  "rental": "Rental / iznajmljivanje plovila",
+  "homepage_quick_search": "Brza pretraga",
+  "homepage_explore": "Istraži",
+  "homepage_offer_boats": "Ponuda plovila",
+  "homepage_parts_and_equipment": "Delovi i oprema",
+  "homepage_sell_boat": "Prodaj plovilo",
+  "homepage_news_and_tips": "Saveti i vesti",
+  "homepage_advertising_offer": "Ponuda za oglašavanje",
+  "homepage_rental": "Rental / iznajmljivanje plovila",
 
-  "by_type": "Po tipu",
-  "by_price": "Po ceni",
-  "by_length": "Po dužini",
-  "destinations": "Destinacije",
-  "marinas": "Marine",
-  "new_boats": "Nova plovila",
-  "used_boats": "Polovna plovila"
+  "homepage_by_type": "Po tipu",
+  "homepage_by_price": "Po ceni",
+  "homepage_by_length": "Po dužini",
+  "homepage_destinations": "Destinacije",
+  "homepage_marinas": "Marine",
+  "homepage_new_boats": "Nova plovila",
+  "homepage_used_boats": "Polovna plovila"
 }
