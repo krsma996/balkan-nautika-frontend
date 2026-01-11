@@ -1,11 +1,11 @@
 
-export const BoatMarks = () =>{
+export const BoatType= () =>{
     return (
       <div className="space-y-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <select id="yearFrom" className="p-2 border rounded w-65 form-text">
             <option value="" disabled selected hidden>
-              Sve marke
+              Tip plovila
             </option>
             <option  value="2000">
               test1

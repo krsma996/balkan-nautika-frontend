@@ -1,6 +1,6 @@
 import { BoatCondition } from "./search-boat-categories/BoatCondition";
 import { BoatFeaturesCheckBox } from "./search-boat-categories/BoatFeaturesCheckBox";
-import { BoatMarks } from "./search-boat-categories/BoatMarks";
+import { BoatType } from "./search-boat-categories/BoatType";
 import { BoatMaterialType } from "./search-boat-categories/BoatMaterialType";
 import { BoatModels } from "./search-boat-categories/BoatModels";
 import { BoatPrice } from "./search-boat-categories/BoatPrice";
@@ -10,25 +10,29 @@ import {BoatFuel } from "./search-boat-categories/BoatFuel";
 import { BoatYear } from "./search-boat-categories/BoatYear";
 
 export const SearBoatForm = () => {
-    return (
-      <div className="mt-20 max-w-4xl ml-30 form-typography">
-        <h1 className="pb-2">Pretraga plovila</h1>
-        <div className="p-10 bg-[#f5f7f8] shadow-lg rounded-lg">
-          <form method="get" action="/nautika-oglasi/pretraga boat-form">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-              <BoatMarks />
-              <BoatModels />
-              <BoatPrice />
-              <BoatYear />
-              <BoatFuel />
-              <BoatRegion />
-              <BoatCondition />
-              <BoatMaterialType />
-              <BoatFeaturesCheckBox />
+  return (
+    <div className="mt-20 ml-30 max-w-4xl mx-auto px-4 form-typography">
+      <h1 className="mb-6">Pretraga plovila</h1>
+
+      <div className="p-10 bg-[#f5f7f8] shadow-lg rounded-lg">
+        <form method="get" action="/nautika-oglasi/pretraga text-sm">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+            <BoatType />
+            <BoatModels />
+            <BoatPrice />
+            <BoatYear />
+            <BoatFuel />
+            <BoatRegion />
+            <BoatCondition />
+            <BoatMaterialType />
+            <BoatFeaturesCheckBox />
+
+            <div className="col-span-full flex justify-end pt-4">
               <BoatSearchButton />
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
-    );
-}
+    </div>
+  );
+};
