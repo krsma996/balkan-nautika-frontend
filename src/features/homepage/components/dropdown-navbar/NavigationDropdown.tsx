@@ -33,7 +33,7 @@ export const NavigationDropdown = ({ label, items }: Props) => {
             key={item.href}
             as="a"
             href={item.href}
-            className="block px-4 py-2 text-sm data-[focus]:bg-gray-100"
+            className="block px-4 py-2 text-xs data-[focus]:bg-gray-300"
           >
             {item.label}
           </MenuItem>
