@@ -10,7 +10,7 @@ export const BoatFeaturesCheckBox=()=>{
           />
           <label
             htmlFor="default-checkbox"
-            className="ms-2 text-sm font-medium text-black" // promenjeno na text-black
+            className="ms-2 text-sm font-medium text-black"
           >
             Kredit
           </label>
