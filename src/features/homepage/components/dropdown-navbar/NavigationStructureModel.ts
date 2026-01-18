@@ -1,4 +1,4 @@
-// NavigationStructureModel.ts
+
 
 export type NavigationItem = {
   label: string;

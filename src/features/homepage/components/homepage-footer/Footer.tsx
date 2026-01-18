@@ -1,6 +1,9 @@
 import logo from "../../../../img/logo1.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faFacebookF,faInstagram,faLinkedin,faYoutube,faTwitter} from "@fortawesome/free-brands-svg-icons";
+import { FooterQuickLinks } from "./FooterQuickLinks";
+import { FOOTER_QUICK_LINKS, FOOTER_QUICK_SEARCH } from "./FooterModel";
+import { FooterQuickSearch } from "./FooterQuickSearch";
 
 export const Footer = () => {
   return (
@@ -22,62 +25,24 @@ export const Footer = () => {
             </a>
           </div>
           {/* Brzi linkovi */}
-          <div className="flex flex-col space-y-2 max-w-xs">
-            <h3 className="text-white font-semibold">Brzi linkovi</h3>
-            <a href="#" className="text-white hover:underline">
-              Kontakt
-            </a>
-            <a href="#" className="text-white hover:underline">
-              Uslovi korišćenja
-            </a>
-            <a href="#" className="text-white hover:underline">
-              Privatnost
-            </a>
-            <a href="#" className="text-white hover:underline">
-              Kolačići
-            </a>
-            <a href="#" className="text-white hover:underline">
-              Medijski paket
-            </a>
-            <a href="#" className="text-white hover:underline">
-              Ugovor za oglašivače
-            </a>
-            <a href="#" className="text-white hover:underline">
-              Izbor Oglasa
-            </a>
-            <a href="#" className="text-white hover:underline">
-              Ne prodaj moje lične podatke
-            </a>
-          </div>
+          {FOOTER_QUICK_LINKS.map((key) => (
+            <FooterQuickLinks
+              key={key.label}
+              label={key.label}
+              items={key.items}
+            />
+          ))}
 
           {/* Brza pretraga */}
-          <div className="flex flex-col space-y-3">
-            <h3 className="text-white font-semibold">Brza Pretraga</h3>
-            <a href="#" className="text-white hover:underline">
-              Srbija
-            </a>
-            <a href="#" className="text-white hover:underline">
-              Hrvatska
-            </a>
-            <a href="#" className="text-white hover:underline">
-              Slovenija
-            </a>
-            <a href="#" className="text-white hover:underline">
-              Crna Gora
-            </a>
-            <a href="#" className="text-white hover:underline">
-              Bosna i Hercegovina
-            </a>
-            <a href="#" className="text-white hover:underline">
-              Grčka
-            </a>
-            <a href="#" className="text-white hover:underline">
-              Rumunija
-            </a>
-            <a href="#" className="text-white hover:underline">
-              Albanija
-            </a>
-          </div>
+          {FOOTER_QUICK_SEARCH.map((key) => (
+            <FooterQuickSearch
+              key={key.label}
+              label={key.label}
+              items={key.items}
+            />
+          ))}
+
+          
           {/* Linkovi sekcija i newsletter */}
           <div className="flex space-x-15">
             {/* Prijava na newsletter*/}
