@@ -5,12 +5,13 @@ import { NavigationDropdown } from "./NavigationDropdown";
 
 export function NavbarPrimaryMenu() {
   return (
-    <div className="mx-auto w-full max-w-screen-xl">
-      <div className="bg-[#f5f7f8] flex items-center  p-1 justify-center">
+    <div className="w-full bg-[#f5f7f8] border-b border-gray-300 shadow-sm">
+      <div className="flex items-center justify-center">
         <FontAwesomeIcon
           icon={faHouse}
-          className="text-gray-700 text-xl hover:bg-gray-200 rounded-md p-2 ml-2"
+          className="text-gray-700 text-xl hover:bg-gray-200 rounded-md p-2 mr-2"
         />
+
         {NAVIGATION_STRUCTURE.map((nav) => (
           <NavigationDropdown
             key={nav.label}
@@ -22,3 +23,4 @@ export function NavbarPrimaryMenu() {
     </div>
   );
 }
+

@@ -13,7 +13,7 @@ export const NavigationDropdown = ({ label, items }: Props) => {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <MenuButton
-        className=" flex items-center gap-1 px-4 py-2 text-xs font-semibold text-black rounded-md
+        className="px-2 py-1 text-xs font-semibold text-black rounded-md
                     hover:bg-gray-200 data-[open]:bg-gray-200 data-[open]:ring-2 data-[open]:ring-black
                     data-[open]:ring-offset-2"
         >
