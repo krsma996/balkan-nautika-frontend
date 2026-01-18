@@ -11,9 +11,8 @@ import { BoatYear } from "./search-boat-categories/BoatYear";
 
 export const SearBoatForm = () => {
   return (
-    <div className="mt-20 ml-30 max-w-4xl mx-auto px-4 form-typography">
+    <div className="mt-20 ml-30 max-w-4xl form-typography">
       <h1 className="mb-6">Pretraga plovila</h1>
-
       <div className="p-8 bg-[#f5f7f8] shadow-lg rounded-lg">
         <form method="get" action="/nautika-oglasi/pretraga">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">

@@ -17,51 +17,60 @@ export const BoatGrid = () => {
   } | null>(null);
 
   return (
-    <div className="bg-[#f5f7f8] mt-10">
-    <div className="pb-7 pt-7 flex  ml-30  w-full max-w-7xl">
-      <div className="grid grid-cols-6 gap-6">
-        {testShips.map((ship) => (
-          <div
-            key={ship.id}
-            className="cursor-pointer bg-gray-100 p-2 rounded-lg shadow-md"
-            onClick={() => setSelectedShip(ship)}
-          >
-            <img
-              src={ship.imageUrl}
-              alt={ship.name}
-              className="w-full h-24 object-cover rounded-lg"
-            />
-            <p className="text-center font-semibold mt-2">{ship.name}</p>
-          </div>
-        ))}
-      </div>
+    <div className="flex justify-center bg-[#f5f7f8] mt-10">
+      <div className="pb-7 pt-7 flex ml-30 w-full">
+        <div className="grid grid-cols-6 gap-6">
+          {testShips.map((ship) => (
+            <div
+              key={ship.id}
+              className="cursor-pointer bg-gray-100 p-2 rounded-lg shadow-md"
+              onClick={() => setSelectedShip(ship)}
+            >
+              {/* IMAGE CENTERED VIA FLEX */}
+              <div className="flex justify-center">
+                <img
+                  src={ship.imageUrl}
+                  alt={ship.name}
+                  className="h-24 object-cover rounded-lg"
+                />
+              </div>
 
-      {selectedShip && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-1/3 relative">
-            <button
-              className="absolute top-2 right-2 text-xl font-bold"
-              onClick={() => setSelectedShip(null)}
-            >
-              &times;
-            </button>
-            <img
-              src={selectedShip.imageUrl}
-              alt={selectedShip.name}
-              className="w-full h-64 object-cover rounded-md"
-            />
-            <h2 className="text-lg font-bold mt-4">{selectedShip.name}</h2>
-            <p className="text-gray-600 mt-2">{selectedShip.description}</p>
-            <button
-              className="mt-4 bg-blue-600 text-white py-2 px-4 rounded-md w-full"
-              onClick={() => alert(`Go to listing ${selectedShip.id}`)}
-            >
-              View Listing
-            </button>
-          </div>
+              <p className="text-center font-semibold mt-2">{ship.name}</p>
+            </div>
+          ))}
         </div>
-      )}
-    </div>
+
+        {selectedShip && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <div className="bg-white p-6 rounded-lg shadow-lg w-1/3 relative">
+              <button
+                className="absolute top-2 right-2 text-xl font-bold"
+                onClick={() => setSelectedShip(null)}
+              >
+                &times;
+              </button>
+
+              {/* MODAL IMAGE CENTERED VIA FLEX */}
+              <div className="flex justify-center">
+                <img
+                  src={selectedShip.imageUrl}
+                  alt={selectedShip.name}
+                  className="h-64 object-cover rounded-md"
+                />
+              </div>
+
+              <h2 className="text-lg font-bold mt-4">{selectedShip.name}</h2>
+              <p className="text-gray-600 mt-2">{selectedShip.description}</p>
+              <button
+                className="mt-4 bg-blue-600 text-white py-2 px-4 rounded-md w-full"
+                onClick={() => alert(`Go to listing ${selectedShip.id}`)}
+              >
+                View Listing
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
