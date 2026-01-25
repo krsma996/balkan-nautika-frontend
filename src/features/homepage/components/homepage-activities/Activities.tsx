@@ -13,8 +13,8 @@ import ronjenje from "../../../../img/Activities/ronjenje.jpg";
 export const Activities = () => {
   return (
     <>
-      <div className="flex items-center bg-[#f5f7f8]">
-        <div className="mx-auto max-w-screen-xl mt-7">
+      <div className="flex flex-wrap items-center justify-center bg-[#f5f7f8] mt-10 mb-10 w-full pb-10">
+        <div className="mx-auto max-w-screen-xl px-4 md:px-8">
           <h2 className="text-2xl font-semibold mb-6 text-center pt-5">
             Istražite plovidbu po aktivnostima
           </h2>

@@ -17,8 +17,8 @@ export const BoatGrid = () => {
   } | null>(null);
 
   return (
-    <div className="flex justify-center bg-[#f5f7f8] mt-10">
-      <div className="pb-7 pt-7 flex ml-30 w-full">
+    <div className="flex items-center justify-center bg-[#f5f7f8] mt-10 mb-10 w-full ">
+      <div className="pb-7 pt-7">
         <div className="grid grid-cols-6 gap-6">
           {testShips.map((ship) => (
             <div
