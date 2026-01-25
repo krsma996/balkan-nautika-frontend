@@ -19,7 +19,7 @@ export const BoatYear=() =>{
               htmlFor="yearTo"
               className="block text-sm font-medium text-gray-700"
             ></label>
-            <select id="yearTo" className="p-2 border rounded w-full">
+            <select id="yearTo" className="p-2 border rounded w-26">
               <option value="">do</option>
               <option value="2025">2025</option>
               <option value="2024">2024</option>
