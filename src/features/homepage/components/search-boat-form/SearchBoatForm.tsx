@@ -11,28 +11,26 @@ import { BoatYear } from "./search-boat-categories/BoatYear";
 
 export const SearBoatForm = () => {
   return (
-    <div className="flex items-center justify-center w-full">
-      <div className="max-w-5xl form-typography w-full  mt-10 mb-10 pt-10 px-4">
-        <h1 className="mb-6">Pretraga plovila</h1>
-        <div className="p-8 bg-[#f5f7f8] shadow-lg rounded-lg">
-          <form method="get" action="/nautika-oglasi/pretraga">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              <BoatType />
-              <BoatModels />
-              <BoatPrice />
-              <BoatYear />
-              <BoatFuel />
-              <BoatRegion />
-              <BoatCondition />
-              <BoatMaterialType />
-              <BoatFeaturesCheckBox />
-              <div className="col-span-full flex justify-end pt-4">
-                <BoatSearchButton />
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+    <div className="flex items-center justify-center pt-5">
+   <div className="max-w-7xl mx-auto px-4 py-10 w-full">
+    <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-8">
+    <h2 className="text-2xl font-semibold text-gray-800 mb-8">
+      Pretraga plovila
+    </h2>
+    <form className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <BoatType />
+      <BoatModels/>
+      <BoatPrice/>
+      <BoatYear/>
+      <BoatFuel/>
+      <BoatRegion/>
+      <BoatCondition/>
+      <BoatMaterialType/>
+      <BoatFeaturesCheckBox/>
+      <BoatSearchButton/>
+    </form>
+  </div>
+</div>
+</div>
   );
 };

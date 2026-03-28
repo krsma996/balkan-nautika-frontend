@@ -1,32 +1,21 @@
 export const BoatYear=() =>{
     return (
-      <div className="space-y-2">
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <label
-              htmlFor="yearFrom"
-              className="block text-sm font-medium text-gray-700"
-            ></label>
-            <select id="yearFrom" className="p-2 border rounded w-full">
-              <option value="">Godiste od</option>
-              <option value="2000">2000</option>
-              <option value="2001">2001</option>
-              <option value="2002">2002</option>
-            </select>
-          </div>
-          <div>
-            <label
-              htmlFor="yearTo"
-              className="block text-sm font-medium text-gray-700"
-            ></label>
-            <select id="yearTo" className="p-2 border rounded w-26">
-              <option value="">do</option>
-              <option value="2025">2025</option>
-              <option value="2024">2024</option>
-              <option value="2023">2023</option>
-            </select>
-          </div>
-        </div>
+      <>
+       <div>
+        <label className="block text-sm font-medium text-gray-700 mb-1">
+          Godište od
+        </label>
+        <input type="number" placeholder="npr. 2010"
+          className="w-full rounded-lg border-gray-300 focus:border-gray-800 focus:ring-gray-800"/>
       </div>
+
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-1">
+          Godište do
+        </label>
+        <input type="number" placeholder="npr. 2024"
+          className="w-full rounded-lg border-gray-300 focus:border-gray-800 focus:ring-gray-800"/>
+      </div>
+      </>
     );
 }

@@ -1,23 +1,17 @@
 
 export const BoatType= () =>{
     return (
-      <div className="space-y-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <select id="yearFrom" className="p-2 border rounded w-65">
-            <option value="" disabled selected hidden>
-              Tip plovila
-            </option>
-            <option  value="2000">
-              test1
-            </option>
-            <option value="2001">
-              test1
-            </option>
-            <option  value="2002">
-              test1
-            </option>
-          </select>
-        </div>
+        <div>
+        <label className="block text-sm font-medium text-gray-700 mb-1">
+          Tip plovila
+        </label>
+        <select className="w-full rounded-lg border-gray-300 focus:border-gray-800 focus:ring-gray-800">
+          <option>Sva plovila</option>
+          <option>Čamac</option>
+          <option>Jahta</option>
+          <option>Gliser</option>
+          <option>Katamaran</option>
+        </select>
       </div>
     );
 }
