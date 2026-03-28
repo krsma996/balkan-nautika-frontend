@@ -2,15 +2,12 @@
 
 export const BoatPrice = () => {
   return (
-    <>
-      <input
-        type="number"
-        id="number-input"
-        aria-describedby="helper-text-explanation"
-        className="border border-black text-black text-sm rounded-lg focus:ring-black focus:border-blue-500 block w-full p-2.3 dark:border-black dark:placeholder-black dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 text-center"
-        placeholder="Cena (u evrima) do"
-        required
-      />
-    </>
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-1">
+          Cena (€)
+        </label>
+        <input type="number" placeholder="Do"
+          className="w-full rounded-lg border-gray-300 focus:border-gray-800 focus:ring-gray-800"/>
+      </div>
   );
 };

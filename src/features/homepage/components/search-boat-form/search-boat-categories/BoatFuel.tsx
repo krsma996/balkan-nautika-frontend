@@ -1,20 +1,15 @@
 export const BoatFuel=()=>{
     return (
-      <div className="space-y-2">
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <label
-              htmlFor="yearFrom"
-              className="block text-sm font-medium text-gray-700"
-            ></label>
-            <select id="yearFrom" className="p-2 border rounded w-66">
-              <option value="">Gorivo</option>
-              <option value="2000">Benzin</option>
-              <option value="2001">Dizel</option>
-              <option value="2002">Gas</option>
-            </select>
-          </div>
-        </div>
+     <div>
+        <label className="block text-sm font-medium text-gray-700 mb-1">
+          Gorivo
+        </label>
+        <select className="w-full rounded-lg border-gray-300 focus:border-gray-800 focus:ring-gray-800">
+          <option>Sva goriva</option>
+          <option>Dizel</option>
+          <option>Benzin</option>
+          <option>Električno</option>
+        </select>
       </div>
     );
 }
