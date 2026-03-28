@@ -6,6 +6,7 @@ import { SearBoatForm } from "./components/search-boat-form/SearchBoatForm";
 import { Activities } from "./components/homepage-activities/Activities";
 import { NavbarPrimaryMenu } from "./components/dropdown-navbar/NavbarPrimaryMenu ";
 import { NauticalCategories } from "./components/homepage-categories/NauticalCategories";
+import { HowItWorks } from "./components/homepage-howitworks/HowItWorks";
 
 export const HomePage = () => {
   return (
@@ -14,6 +15,7 @@ export const HomePage = () => {
       <NavbarPrimaryMenu />
       <SearBoatForm />
       <NauticalCategories/>
+      <HowItWorks/>
       <Activities/>
       <NauticalBusinessDirectoryHub />
       <Footer/>

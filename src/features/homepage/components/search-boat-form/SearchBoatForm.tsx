@@ -13,11 +13,11 @@ export const SearBoatForm = () => {
   return (
     <div className="flex items-center justify-center pt-5">
    <div className="max-w-7xl mx-auto px-4 py-10 w-full">
-    <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-8">
-    <h2 className="text-2xl font-semibold text-gray-800 mb-8">
+    <h2 className="text-2xl font-semibold text-gray-800 mb-4 text-center">
       Pretraga plovila
     </h2>
-    <form className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-8">
+    <form form-typography className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       <BoatType />
       <BoatModels/>
       <BoatPrice/>
