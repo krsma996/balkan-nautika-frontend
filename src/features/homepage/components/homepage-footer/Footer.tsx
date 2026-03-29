@@ -48,7 +48,7 @@ export const Footer = () => {
             {/* Prijava na newsletter*/}
             <div className="mt-3">
               <h3 className="text-white font-semibold mb-2">
-                Prijava na newsletter
+                Prijava na vesti
               </h3>
               <form className="flex">
                 <input
@@ -59,8 +59,7 @@ export const Footer = () => {
                 />
                 <button
                   type="submit"
-                  className="bg-blue-600 p-2 rounded-r hover:bg-blue-700 transition"
-                >
+                  className="bg-blue-600 p-2 rounded-r hover:bg-blue-700 transition">
                   Prijavi se
                 </button>
               </form>

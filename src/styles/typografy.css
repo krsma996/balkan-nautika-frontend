@@ -16,6 +16,7 @@ h2 {
 }
 
 
+
 .form-typography {
   font-family: "Roboto", "Helvetica Neue", Helvetica, sans-serif;
 }
@@ -23,7 +24,7 @@ h2 {
 .form-typography input,
 .form-typography select,
 .form-typography textarea {
-  @apply  rounded-md border border-gray-300 bg-white px-2
+  @apply rounded-md border border-gray-300 bg-white px-2
          text-base text-gray-800
          focus:outline-none focus:ring-2 focus:ring-gray-900
          focus:border-gray-900

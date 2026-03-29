@@ -16,8 +16,8 @@ export const SearBoatForm = () => {
     <h2 className="text-2xl font-semibold text-gray-800 mb-4 text-center">
       Pretraga plovila
     </h2>
-    <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-8">
-    <form form-typography className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+   <div className="bg-white rounded-2xl border border-gray-200 p-8 shadow-[0_4px_24px_rgba(99,114,180,0.15)]">
+   <form className="form-typography grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       <BoatType />
       <BoatModels/>
       <BoatPrice/>

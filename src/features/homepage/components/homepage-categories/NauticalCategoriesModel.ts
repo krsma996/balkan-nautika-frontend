@@ -16,5 +16,5 @@ export const NAUTICAL_CATEGORIES_MODEL = [
   { title: "Oprema",      img: opremaImg },
   { title: "Marine",      img: marineImg },
   { title: "Servisi",     img: servisiImg },
-  { title: "Rent a boat", img: rentAboatImg },
+  { title: "Iznajmljivanje", img: rentAboatImg },
 ];

@@ -23,10 +23,10 @@ export const HowItWorks = () => {
       <div className="grid md:grid-cols-3 gap-8">
         {steps.map((step, index) => (
           <div key={index} className="bg-white border border-gray-200 rounded-xl p-8
-             text-center flex flex-col items-center">
+             text-center flex flex-col items-center shadow-sm hover:shadow-lg transition cursor-pointer text-center">
            <div className="w-12 h-12 rounded-full bg-blue-600 flex items-center
                 justify-center text-lg font-semibold text-white mb-4 
-                ring-4 ring-blue-100">
+                ring-4 ring-blue-100 ">
                 {index + 1}
             </div>
          <h3 className="font-medium text-base mb-2">{step.title}</h3>
