@@ -1,6 +1,6 @@
 import { Disclosure, DisclosureButton, DisclosurePanel} from "@headlessui/react";
 import { XMarkIcon, Bars3Icon } from "@heroicons/react/16/solid";
-import logo from "../../../../img/logo1.png";
+//import logo from "../../../../img/logo1.png";
 import { NavLinks } from "./NavLinks";
 import {faFacebookF,faInstagram,faLinkedin,faYoutube,faTwitter} from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,7 +17,6 @@ export const NavBarHeader = () => {
               href="#"
               className="flex items-center space-x-3 rtl:space-x-reverse"
             >
-              <img src={logo} className="h-15 w-15" alt="Balkan Marina Logo" />
               <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
                 NautikaOglasi
               </span>

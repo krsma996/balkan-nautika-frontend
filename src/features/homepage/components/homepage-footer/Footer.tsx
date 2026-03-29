@@ -1,4 +1,4 @@
-import logo from "../../../../img/logo1.png";
+//import logo from "../../../../img/logo1.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faFacebookF,faInstagram,faLinkedin,faYoutube,faTwitter} from "@fortawesome/free-brands-svg-icons";
 import { FooterQuickLinks } from "./FooterQuickLinks";
@@ -14,11 +14,6 @@ export const Footer = () => {
           {/* Logo sekcija */}
           <div className="mb-6 md:mb-0">
             <a href="#" className="flex items-center">
-              <img
-                src={logo}
-                className="h-15 w-15 me-3"
-                alt="Balkan-Marina-Logo-Footer"
-              />
               <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
                 NautikaOglasi
               </span>
@@ -59,7 +54,7 @@ export const Footer = () => {
                 />
                 <button
                   type="submit"
-                  className="bg-blue-600 p-2 rounded-r hover:bg-blue-700 transition">
+                  className="bg-blue-600 p-2 rounded-r hover:bg-blue-700 transition text-white">
                   Prijavi se
                 </button>
               </form>
