@@ -1,9 +1,7 @@
 import {
   FaShip,
   FaSailboat,
-  FaWater,
   FaBots,
-  FaCrown,
   FaScrewdriverWrench
 } from "react-icons/fa6";
 
