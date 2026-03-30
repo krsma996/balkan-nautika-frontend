@@ -7,7 +7,7 @@ export const BoatPrice = () => {
           Cena (€)
         </label>
         <input type="number" placeholder="Do"
-          className="w-full rounded-lg border border-gray-300 focus:border-gray-800 focus:ring-gray-800"/>
+          className="w-full rounded-lg border border-gray-300 focus:border-gray-800 focus:ring-gray-800 h-8"/>
       </div>
   );
 };

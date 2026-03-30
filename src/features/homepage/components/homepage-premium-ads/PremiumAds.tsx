@@ -9,7 +9,7 @@ export const PremiumAds = () => {
       </h2>
       <div className="grid md:grid-cols-3 gap-8">
         {HOMEPAGE_PREMIUM_PLANS.map((plan, i) => (
-          <div key={i} className="bg-gray-50 border border-white rounded-xl p-6 shadow-sm hover:shadow-lg transition cursor-pointer text-center">
+          <div key={i} className="bg-white border border-white rounded-xl p-6 shadow-sm hover:shadow-lg transition cursor-pointer text-center">
             <h3 className="font-bold text-lg mb-2">{plan.title}</h3>
             <p className="text-gray-800 text-xl font-semibold mb-2">{plan.price}</p>
             <p className="text-gray-600 mb-4">{plan.desc}</p>
