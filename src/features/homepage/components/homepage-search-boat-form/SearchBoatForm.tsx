@@ -8,37 +8,39 @@ import { BoatRegion } from "./search-boat-categories/BoatRegion";
 import { BoatSearchButton } from "./search-boat-categories/BoatSearchButton";
 import {BoatFuel } from "./search-boat-categories/BoatFuel";
 import { BoatYear } from "./search-boat-categories/BoatYear";
-import { BoatQuickFilters } from "./search-boat-categories/BoatQuickFilters";
 import { BoatBeam  } from "./search-boat-categories/BoatBeam";
 
-export const SearBoatForm = () => {
-  return (
-    <div className="flex items-center justify-center pt-5">
-   <div className="max-w-7xl mx-auto px-4 py-10 w-full">
-    <h2 className="text-2xl font-semibold text-gray-800 mb-4 text-center">
-      Pretraga plovila
-    </h2>
-   <div className="bg-white rounded-2xl border border-gray-200 p-8 shadow-[0_4px_24px_rgba(99,114,180,0.15)]">
-   <BoatQuickFilters/>
-   <form className="form-typography grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <BoatType />
-      <BoatModels/>
-      <BoatPrice/>
-      <BoatYear/>
-      <BoatFuel/>
-      <BoatRegion/>
-      <BoatCondition/>
-      <BoatMaterialType/>
-      <BoatBeam />
-      <BoatFeaturesCheckBox/>
-      <BoatSearchButton/>
-    </form>
-          {/* FOOTER HINT */}
-          <p className="text-center text-sm text-gray-500 mt-6">
-            Pretražite oglase plovila, opreme i nautičkih usluga
-          </p>
-  </div>
+export const SearBoatForm = () => {
+  return (
+   
+<div className="relative max-w-7xl mx-auto px-4 py-14 w-full">
+  {/* Glass background */}
+  <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/70 via-white/50 to-[#e7eaf6]/70 backdrop-blur-xl" />
+  <h2 className="relative text-3xl font-bold text-[#222831] mb-2 text-center">
+    Pretraga plovila
+  </h2>
+  <p className="relative text-center text-sm text-gray-500 mb-8">
+    Pronađite idealno plovilo po vašim kriterijumima
+  </p>
+  <div className="relative bg-white/80 rounded-3xl border border-gray-200 p-10 shadow-[0_30px_60px_rgba(34,40,49,0.15)]">
+   <form className="form-typography grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <BoatType />
+      <BoatModels/>
+      <BoatPrice/>
+      <BoatYear/>
+      <BoatFuel/>
+      <BoatRegion/>
+      <BoatCondition/>
+      <BoatMaterialType/>
+      <BoatBeam />
+      <BoatFeaturesCheckBox/>
+      <BoatSearchButton/>
+    </form>
+          {/* FOOTER HINT */}
+          <p className="text-center text-sm text-gray-500 mt-6">
+           Pretražite oglase plovila, opreme i nautičkih usluga
+          </p>
+  </div>
 </div>
-</div>
-  );
+  );
 };
