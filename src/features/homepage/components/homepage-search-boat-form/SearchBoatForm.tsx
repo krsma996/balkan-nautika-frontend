@@ -15,7 +15,7 @@ export const SearBoatForm = () => {
    
 <div className="relative max-w-7xl mx-auto px-4 py-14 w-full">
   {/* Glass background */}
-  <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/70 via-white/50 to-[#e7eaf6]/70 backdrop-blur-xl" />
+  <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/70 via-white/50 to-[#e7eaf6]/70 backdrop-blur-xl mt-10" />
   <h2 className="relative text-3xl font-bold text-[#222831] mb-2 text-center">
     Pretraga plovila
   </h2>
