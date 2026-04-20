@@ -12,8 +12,8 @@ import ronjenje from "../../../../img/Activities/ronjenje.jpg";
 export const ACTIVITIES_LINKS = [
    { title: "Nocno Krstarenje", img: cruiseImg, href: "#" },
    { title: "Dnevno Krstarenje", img: dayCruise, href: "#" },
-   { title: "Vodeni Sportovi", img: saltWater, href: "#" },
-   { title: "Pecanje na slanoj vodi", img: waterSports, href: "#" }, 
+   { title: "Pecanje na slanoj vodi", img: saltWater, href: "#" },
+   { title: "Vodeni Sportovi", img: waterSports, href: "#" }, 
    { title: "Pecanje na slatkoj vodi", img: freshWater, href: "#" },
    { title: "Jedrenje", img: sailing, href: "#" },
    { title: "Licna plovila na vodi", img: pwc, href: "#" },
