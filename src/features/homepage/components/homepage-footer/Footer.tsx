@@ -13,9 +13,12 @@ export const Footer = () => {
         <div className="md:flex md:justify-between">
           {/* Logo sekcija */}
           <div className="mb-6 md:mb-0">
-            <a href="#" className="flex items-center">
-              <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-                NautikaOglasi
+            <a href="#" className="flex items-center space-x-2">
+              <span className="text-xl font-bold tracking-wider text-white">
+                NAUTIKA
+              </span>
+              <span className="text-xl font-light tracking-widest text-sky-400">
+                OGLASI
               </span>
             </a>
           </div>
@@ -37,7 +40,6 @@ export const Footer = () => {
             />
           ))}
 
-          
           {/* Linkovi sekcija i newsletter */}
           <div className="flex space-x-15">
             {/* Prijava na newsletter*/}
@@ -54,7 +56,8 @@ export const Footer = () => {
                 />
                 <button
                   type="submit"
-                  className="bg-blue-600 p-2 rounded-r hover:bg-blue-700 transition text-white">
+                  className="bg-blue-600 p-2 rounded-r hover:bg-blue-700 transition text-white"
+                >
                   Prijavi se
                 </button>
               </form>
