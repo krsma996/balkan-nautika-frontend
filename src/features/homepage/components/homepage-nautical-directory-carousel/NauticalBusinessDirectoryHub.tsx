@@ -18,61 +18,33 @@ const businesses = [
 export const NauticalBusinessDirectoryHub = () => {
   const [index, setIndex] = useState(0);
 
-  const prev = () =>
-    setIndex((i) => (i === 0 ? businesses.length - 1 : i - 1));
-
-  const next = () =>
-    setIndex((i) => (i === businesses.length - 1 ? 0 : i + 1));
+  const prev = () => setIndex((i) => (i === 0 ? businesses.length - 1 : i - 1));
+  const next = () => setIndex((i) => (i === businesses.length - 1 ? 0 : i + 1));
 
   return (
-    <div className="py-10 w-full flex flex-col items-center">
-      {/* TITLE */}
-      <h1 className="text-xl font-semibold mb-6 text-center">
+    <div className="max-w-7xl mx-auto px-4 py-16">
+      <h2 className="text-2xl font-semibold text-center mb-12">
         Biznis prodavci – pravna lica
-      </h1>
+      </h2>
 
       {/* WRAPPER */}
-      <div className="relative w-full max-w-7xl bg-white rounded-xl shadow-lg p-6 overflow-hidden">
-        {/* TRACK (THIS IS REAL CAROUSEL LOGIC) */}
+      <div className="relative bg-white rounded-xl shadow-lg p-6 overflow-hidden">
+        {/* TRACK */}
         <div
           className="flex transition-transform duration-500 ease-in-out"
-          style={{
-            transform: `translateX(-${index * 220}px)`,
-          }}
+          style={{ transform: `translateX(-${index * 220}px)` }}
         >
           {businesses.map((b, i) => (
-            <div
-              key={i}
-              className="min-w-[200px] mx-2 bg-white rounded-lg shadow p-3 text-center transition"
-            >
-              <img
-                src={b.img}
-                alt={b.name}
-                className="w-full h-20 object-contain mb-2"
-              />
+            <div key={i} className="min-w-[200px] mx-2 bg-white rounded-lg shadow p-3 text-center">
+              <img src={b.img} alt={b.name} className="w-full h-20 object-contain mb-2" />
               <p className="text-sm font-medium">{b.name}</p>
               <p className="text-xs text-gray-500">{b.ads} oglasa</p>
             </div>
           ))}
         </div>
 
-        {/* LEFT BUTTON */}
-        <button
-          onClick={prev}
-          className="absolute left-3 top-1/2 -translate-y-1/2 
-          w-10 h-10 bg-black/30 hover:bg-black/50 text-white rounded-full"
-        >
-          ‹
-        </button>
-
-        {/* RIGHT BUTTON */}
-        <button
-          onClick={next}
-          className="absolute right-3 top-1/2 -translate-y-1/2 
-          w-10 h-10 bg-black/30 hover:bg-black/50 text-white rounded-full"
-        >
-          ›
-        </button>
+        <button onClick={prev} className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/30 hover:bg-black/50 text-white rounded-full">‹</button>
+        <button onClick={next} className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/30 hover:bg-black/50 text-white rounded-full">›</button>
       </div>
     </div>
   );
