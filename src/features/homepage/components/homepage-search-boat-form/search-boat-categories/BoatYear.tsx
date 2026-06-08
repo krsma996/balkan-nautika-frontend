@@ -1,35 +1,21 @@
-export const BoatYear=() =>{
-    return (
-      <>
-       <div>
-        <label className="block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">
-          Godište od
-        </label>
-        <input type="number" placeholder="npr. 2010"
-         className="
-  w-full h-12 rounded-xl
-  border border-gray-300
-  bg-white
-  px-3 text-sm
-  focus:border-[#222831]
-  focus:ring-2 focus:ring-[#222831]/20
-  transition-all"/>
-      </div>
+import { faCalendar } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-      <div>
-        <label className="block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">
-          Godište do
-        </label>
-        <input type="number" placeholder="npr. 2024"
-          className="
-  w-full h-12 rounded-xl
-  border border-gray-300
-  bg-white
-  px-3 text-sm
-  focus:border-[#222831]
-  focus:ring-2 focus:ring-[#222831]/20
-  transition-all"/>
+export const BoatYear = () => {
+  return (
+    <div>
+      <label className="flex items-center gap-1 text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">
+       <FontAwesomeIcon icon={faCalendar} className="text-gray-400" />
+        Godište
+      </label>
+      <div className="grid grid-cols-2 gap-3">
+        <input type="number" placeholder="Od"
+          className="w-full h-12 rounded-xl border border-gray-300 bg-white px-3 text-sm
+                     focus:border-[#222831] focus:ring-2 focus:ring-[#222831]/20 transition-all"/>
+        <input type="number" placeholder="Do"
+          className="w-full h-12 rounded-xl border border-gray-300 bg-white px-3 text-sm
+                     focus:border-[#222831] focus:ring-2 focus:ring-[#222831]/20 transition-all"/>
       </div>
-      </>
-    );
-}
+    </div>
+  );
+};
