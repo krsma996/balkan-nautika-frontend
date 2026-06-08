@@ -27,8 +27,8 @@ export const SearBoatForm = () => {
       <BoatType />
       <BoatModels/>
       <BoatPrice/>
+      <BoatFuel/>
       <BoatYear/>
-      <BoatFuel/>
       <BoatRegion/>
       <BoatCondition/>
       <BoatMaterialType/>

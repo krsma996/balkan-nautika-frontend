@@ -1,14 +1,31 @@
-import { Disclosure, DisclosureButton, DisclosurePanel} from "@headlessui/react";
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from "@headlessui/react";
 import { XMarkIcon, Bars3Icon } from "@heroicons/react/16/solid";
 //import logo from "../../../../img/logo1.png";
 import { NavLinks } from "./NavLinks";
-import {faFacebookF,faInstagram,faLinkedin,faYoutube,faTwitter} from "@fortawesome/free-brands-svg-icons";
+import {
+  faFacebookF,
+  faInstagram,
+  faLinkedin,
+  faYoutube,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-
 export const NavBarHeader = () => {
+  const SOCIAL_MEDIA_LINKS = [
+    { icon: faFacebookF, label: "Facebook" },
+    { icon: faInstagram, label: "Instagram" },
+    { icon: faLinkedin, label: "LinkedIn" },
+    { icon: faYoutube, label: "YouTube" },
+    { icon: faTwitter, label: "Twitter" },
+  ];
+
   return (
-    <Disclosure as="nav">
+   <Disclosure as="nav" className="w-full bg-[#222831]">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
@@ -23,51 +40,20 @@ export const NavBarHeader = () => {
             </a>
             {/** SOCIAL MEDIA LINKS !!*/}
             <div className="flex items-center space-x-5">
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="YouTube"
-                className="hover:text-blue-600 text-white"
-              >
-                <FontAwesomeIcon icon={faFacebookF} size="lg" />
-              </a>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="YouTube"
-                className="hover:text-pink-600 text-white"
-              >
-                <FontAwesomeIcon icon={faInstagram} size="lg" />
-              </a>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="YouTube"
-                className="hover:text-blue-600 text-white"
-              >
-                <FontAwesomeIcon icon={faLinkedin} size="lg" />
-              </a>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="YouTube"
-                className="hover:text-red-600 text-white"
-              >
-                <FontAwesomeIcon icon={faYoutube} size="lg" />
-              </a>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="YouTube"
-                className="hover:text-blue-600 text-white"
-              >
-                <FontAwesomeIcon icon={faTwitter} size="lg" />
-              </a>
+              <div className="flex items-center gap-5">
+                {SOCIAL_MEDIA_LINKS.map(({ icon, label }) => (
+                  <a
+                    key={label}
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="text-white/50 hover:text-white transition-colors"
+                  >
+                    <FontAwesomeIcon icon={icon} size="sm" />
+                  </a>
+                ))}
+              </div>
             </div>
 
             {/* Mobile menu button */}

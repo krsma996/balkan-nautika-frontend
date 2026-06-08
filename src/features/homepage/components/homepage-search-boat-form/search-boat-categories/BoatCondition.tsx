@@ -1,17 +1,15 @@
+import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 export const BoatCondition=()=>{
     return (
     <div>
-        <label className="block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">
+        <label className="flex items-center gap-1 text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">
+          <FontAwesomeIcon icon={faCircleCheck} className="text-gray-400" />
           Stanje
         </label>
-        <select className="
-  w-full h-12 rounded-xl
-  border border-gray-300
-  bg-white
-  px-3 text-sm
-  focus:border-[#222831]
-  focus:ring-2 focus:ring-[#222831]/20
-  transition-all">
+        <select className=" w-full h-12 rounded-xl border border-gray-300 bg-white px-3 text-sm
+                            focus:border-[#222831] focus:ring-2 focus:ring-[#222831]/20 transition-all">
           <option>Izaberite stanje</option>
           <option>Nova plovila</option>
           <option>Polovna plovila</option>
