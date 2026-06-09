@@ -1,6 +1,6 @@
 import { Footer } from "./components/homepage-footer/Footer";
 //import { BoatGrid } from "./components/homepage-carousel-boats/BoatGrid";
-import { NauticalBusinessDirectoryHub } from "./components/homepage-nautical-directory-carousel/NauticalBusinessDirectoryHub";
+//import { NauticalBusinessDirectoryHub } from "./components/homepage-nautical-directory-carousel/NauticalBusinessDirectoryHub";
 import { NavBarHeader } from "./components/homepage-navbar-header/NavBarHeader";
 import { SearBoatForm } from "./components/homepage-search-boat-form/SearchBoatForm";
 import { Activities } from "./components/homepage-activities/Activities";
@@ -8,6 +8,7 @@ import { NavbarPrimaryMenu } from "./components/homepage-dropdown-navbar/NavbarP
 import { NauticalCategories } from "./components/homepage-categories/NauticalCategories";
 import { HowItWorks } from "./components/homepage-howitworks/HowItWorks";
 import { PremiumAds } from "./components/homepage-premium-ads/PremiumAds";
+import { TopBoatModels } from "./components/homepage-famous-models/TopBoatModels";
 
 export const HomePage = () => {
   return (
@@ -19,7 +20,7 @@ export const HomePage = () => {
       <HowItWorks/>
       <PremiumAds/>
       <Activities/>
-      <NauticalBusinessDirectoryHub />
+      <TopBoatModels/>
       <Footer/>
     </>
   );
