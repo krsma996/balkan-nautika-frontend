@@ -1,6 +1,6 @@
 // src/auth/AuthProvider.tsx
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { keycloak } from "./keycloack";
+import { keycloak } from "./Keycloack";
 
 type AuthContextType = {
   initialized: boolean;
