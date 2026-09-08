@@ -1,20 +1,45 @@
-import { faCalendar } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { CalendarDays } from "lucide-react";
 
 export const BoatYear = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <div>
-      <label className="flex items-center gap-1 text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">
-       <FontAwesomeIcon icon={faCalendar} className="text-gray-400" />
+    <div className="form-field">
+      <label htmlFor="boat-year-from" className="form-label">
+        <CalendarDays
+          aria-hidden="true"
+          className="form-label-icon"
+          size={16}
+          strokeWidth={2}
+        />
+
         Godište
       </label>
+
       <div className="grid grid-cols-2 gap-3">
-        <input type="number" placeholder="Od"
-          className="w-full h-12 rounded-xl border border-gray-300 bg-white px-3 text-sm
-                     focus:border-[#222831] focus:ring-2 focus:ring-[#222831]/20 transition-all"/>
-        <input type="number" placeholder="Do"
-          className="w-full h-12 rounded-xl border border-gray-300 bg-white px-3 text-sm
-                     focus:border-[#222831] focus:ring-2 focus:ring-[#222831]/20 transition-all"/>
+        <input
+          id="boat-year-from"
+          name="yearFrom"
+          type="number"
+          min="1900"
+          max={currentYear}
+          inputMode="numeric"
+          placeholder="Od"
+          aria-label="Minimalno godište"
+          className="form-control"
+        />
+
+        <input
+          id="boat-year-to"
+          name="yearTo"
+          type="number"
+          min="1900"
+          max={currentYear}
+          inputMode="numeric"
+          placeholder="Do"
+          aria-label="Maksimalno godište"
+          className="form-control"
+        />
       </div>
     </div>
   );

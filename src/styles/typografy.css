@@ -1,40 +1,129 @@
 @import "tailwindcss";
 
-h1 {
-  @apply text-3xl font-bold text-gray-900;
-  font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 1.7em;
-  color:#222;
-  font-weight: bold;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family:
+    "Roboto Condensed",
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
-body, nav, footer { font-family: "Roboto", "Helvetica Neue", Helvetica, sans-serif; }
-
-h2 {
-  @apply text-2xl  text-gray-900;
-  font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, sans-serif;
-}
-
-
-
+/* Form typography */
 .form-typography {
-  font-family: "Roboto", "Helvetica Neue", Helvetica, sans-serif;
+  font-family:
+    "Roboto",
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
-.form-typography input,
-.form-typography select,
-.form-typography textarea {
-  @apply rounded-md border border-gray-300 bg-white px-2
-         text-base text-gray-800
-         text-sm;
+/* Field wrapper */
+.form-field {
+  display: flex;
+  flex-direction: column;
 }
 
+/* Label */
+.form-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 
-.form-typography input::placeholder,
-.form-typography textarea::placeholder {
-  @apply text-gray-400;
+  margin-bottom: 0.5rem;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  color: rgba(34, 40, 49, 0.78);
 }
 
+/* Label icon */
+.form-label-icon {
+  flex-shrink: 0;
+  color: #385170;
+}
 
+/* Inputs & selects */
+.form-control {
+  width: 100%;
+  height: 3rem;
 
+  padding-left: 0.875rem;
+  padding-right: 0.875rem;
 
+  border-radius: 0.75rem;
+  border: 1px solid rgba(56, 81, 112, 0.2);
+
+  background: rgba(231, 234, 246, 0.75);
+
+  color: #222831;
+  font-size: 0.875rem;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  box-shadow:
+    0 1px 2px rgba(34, 40, 49, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.32);
+}
+
+/* Hover */
+.form-control:hover {
+  border-color: rgba(56, 81, 112, 0.36);
+  background: rgba(231, 234, 246, 0.95);
+}
+
+/* Focus */
+.form-control:focus {
+  border-color: #385170;
+  background: #e7eaf6;
+
+  box-shadow:
+    0 0 0 3px rgba(56, 81, 112, 0.14),
+    0 8px 20px rgba(34, 40, 49, 0.06);
+}
+
+/* Placeholder */
+.form-control::placeholder {
+  color: rgba(56, 81, 112, 0.48);
+}
+
+/* Disabled */
+.form-control:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* Select */
+select.form-control {
+  cursor: pointer;
+}
+
+/* Remove number arrows */
+input[type="number"] {
+  appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+/* Focus */
+.form-typography {
+  button:focus-visible
+}
