@@ -1,27 +1,33 @@
-import { faList } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Tags } from "lucide-react";
 
 export const BoatModels = () => {
   return (
-    <div>
-     <label className="flex items-center gap-1 text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">
-        <FontAwesomeIcon icon={faList} className="text-gray-400" />
+    <div className="form-field">
+      <label htmlFor="boat-model" className="form-label">
+        <Tags
+          aria-hidden="true"
+          className="form-label-icon"
+          size={16}
+          strokeWidth={2}
+        />
+
         Model
       </label>
+
       <select
-        className="
-        w-full h-12 rounded-xl
-        border border-gray-300
-        bg-white
-        px-3 text-sm
-        focus:border-[#222831]
-        focus:ring-2 focus:ring-[#222831]/20
-        transition-all">
-        <option>Izaberite model</option>
-        <option>a1</option>
-        <option>s2</option>
-        <option>s3</option>
-        <option>44</option>
+        id="boat-model"
+        name="boatModel"
+        defaultValue=""
+        className="form-control"
+      >
+        <option value="" disabled>
+          Izaberite model
+        </option>
+
+        <option value="a1">A1</option>
+        <option value="s2">S2</option>
+        <option value="s3">S3</option>
+        <option value="44">44</option>
       </select>
     </div>
   );

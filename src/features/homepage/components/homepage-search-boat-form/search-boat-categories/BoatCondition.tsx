@@ -1,20 +1,33 @@
-import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { BadgeCheck } from "lucide-react";
 
-export const BoatCondition=()=>{
-    return (
-    <div>
-        <label className="flex items-center gap-1 text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">
-          <FontAwesomeIcon icon={faCircleCheck} className="text-gray-400" />
-          Stanje
-        </label>
-        <select className=" w-full h-12 rounded-xl border border-gray-300 bg-white px-3 text-sm
-                            focus:border-[#222831] focus:ring-2 focus:ring-[#222831]/20 transition-all">
-          <option>Izaberite stanje</option>
-          <option>Nova plovila</option>
-          <option>Polovna plovila</option>
-          <option>Polovna i nova plovila</option>
-        </select>
-      </div>
-    );
-}
+export const BoatCondition = () => {
+  return (
+    <div className="form-field">
+      <label htmlFor="boat-condition" className="form-label">
+        <BadgeCheck
+          aria-hidden="true"
+          className="form-label-icon"
+          size={16}
+          strokeWidth={2}
+        />
+
+        Stanje
+      </label>
+
+      <select
+        id="boat-condition"
+        name="condition"
+        defaultValue=""
+        className="form-control"
+      >
+        <option value="" disabled>
+          Izaberite stanje
+        </option>
+
+        <option value="novo">Novo plovilo</option>
+        <option value="polovno">Polovno plovilo</option>
+        <option value="sve">Nova i polovna plovila</option>
+      </select>
+    </div>
+  );
+};

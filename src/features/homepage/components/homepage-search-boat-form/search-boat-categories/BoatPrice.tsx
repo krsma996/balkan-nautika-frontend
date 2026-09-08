@@ -1,20 +1,44 @@
-import { faEuroSign } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Euro } from "lucide-react";
 
 export const BoatPrice = () => {
   return (
-    <div>
-      <label className="flex items-center gap-1 text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">
-      <FontAwesomeIcon icon={faEuroSign} className="text-gray-400" />
-        Cena (€)
+    <div className="form-field">
+      <label htmlFor="boat-price-from" className="form-label">
+        <Euro
+          aria-hidden="true"
+          className="form-label-icon"
+          size={16}
+          strokeWidth={2}
+        />
+
+        Cena
+        <span className="normal-case tracking-normal text-[#385170]/60">
+          (€)
+        </span>
       </label>
+
       <div className="grid grid-cols-2 gap-3">
-        <input type="number" placeholder="Od"
-          className="w-full h-12 rounded-xl border border-gray-300 bg-white px-3 text-sm
-                     focus:border-[#222831] focus:ring-2 focus:ring-[#222831]/20 transition-all"/>
-        <input type="number" placeholder="Do"
-          className="w-full h-12 rounded-xl border border-gray-300 bg-white px-3 text-sm
-                     focus:border-[#222831] focus:ring-2 focus:ring-[#222831]/20 transition-all"/>
+        <input
+          id="boat-price-from"
+          name="priceFrom"
+          type="number"
+          min="0"
+          inputMode="numeric"
+          placeholder="Od"
+          aria-label="Minimalna cena"
+          className="form-control"
+        />
+
+        <input
+          id="boat-price-to"
+          name="priceTo"
+          type="number"
+          min="0"
+          inputMode="numeric"
+          placeholder="Do"
+          aria-label="Maksimalna cena"
+          className="form-control"
+        />
       </div>
     </div>
   );

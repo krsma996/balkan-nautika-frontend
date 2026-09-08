@@ -1,15 +1,30 @@
 @import "tailwindcss";
 
+:root {
+  color-scheme: light;
+}
+
 body {
-background: #e7eaf6; 
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(56, 81, 112, 0.08),
+      transparent 40%
+    ),
+    #e7eaf6;
 
-}
-nav{
-  background: #222831;
-  
-}
-footer{
-  background: #222831;
+  color: #222831;
+  font-family:
+    "Roboto",
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
-/* https://www.shecodes.io/palettes/1448 */
+nav,
+footer {
+  background-color: #222831;
+}
