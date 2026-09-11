@@ -1,29 +1,20 @@
 
 import { useRef, useState } from "react";
-import {
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems,
-} from "@headlessui/react";
-
+import {Menu,MenuButton,MenuItem,MenuItems} from "@headlessui/react";
 import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import type { NavigationGroup } from "./NavigationStructureModel";
+
+
 
 type Props = NavigationGroup & {
   icon?: IconDefinition;
 };
 
-export const NavigationDropdown = ({
-  label,
-  items,
-  icon,
-}: Props) => {
+export const NavigationDropdown = ({label,items,icon}: Props) => {
+  
   const [isOpen, setIsOpen] = useState(false);
-
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleMouseEnter = () => {
@@ -61,7 +52,7 @@ export const NavigationDropdown = ({
             gap-2
             border-b-2
             border-transparent
-            px-3
+            px-1
             text-[11px]
             font-bold
             tracking-[0.055em]
