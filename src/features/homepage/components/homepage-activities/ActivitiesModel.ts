@@ -10,13 +10,13 @@ import ronjenje from "../../../../img/Activities/ronjenje.jpg";
 
 
 export const ACTIVITIES_LINKS = [
-   { title: "Nocno Krstarenje", img: cruiseImg, href: "#" },
-   { title: "Dnevno Krstarenje", img: dayCruise, href: "#" },
-   { title: "Pecanje na slanoj vodi", img: saltWater, href: "#" },
-   { title: "Vodeni Sportovi", img: waterSports, href: "#" }, 
-   { title: "Pecanje na slatkoj vodi", img: freshWater, href: "#" },
-   { title: "Jedrenje", img: sailing, href: "#" },
-   { title: "Licna plovila na vodi", img: pwc, href: "#" },
-   { title: "Kayakarenje", img: kayak, href: "#" },
-   { title: "Ronjenje", img: ronjenje, href: "#" }
+   { title: "Nocno Krstarenje", img: cruiseImg, href: "#" , tag: "Avantura",description: "Oseti vetar, uhvati pravi kurs i istraži otvoreno more.",},
+   { title: "Dnevno Krstarenje", img: dayCruise, href: "#",tag: "Opuštanje",description: "Oseti vetar, uhvati pravi kurs i istraži otvoreno more.", },
+   { title: "Pecanje na slanoj vodi", img: saltWater, href: "#",tag: "Istraživanje",description: "Oseti vetar, uhvati pravi kurs i istraži otvoreno more.", },
+   { title: "Vodeni Sportovi", img: waterSports, href: "#",tag:"Zalazak",description: "Oseti vetar, uhvati pravi kurs i istraži otvoreno more." },
+   { title: "Pecanje na slatkoj vodi", img: freshWater, href: "#",tag:"Doživljaj",description: "Oseti vetar, uhvati pravi kurs i istraži otvoreno more.", },
+   { title: "Jedrenje", img: sailing, href: "#",tag:"Porodica",description: "Oseti vetar, uhvati pravi kurs i istraži otvoreno more.", },
+   { title: "Licna plovila na vodi", img: pwc, href: "#",tag:"Ispunjenje",description: "Oseti vetar, uhvati pravi kurs i istraži otvoreno more.", },
+   { title: "Kayakarenje", img: kayak, href: "#",tag:"Uzivanje",description: "Oseti vetar, uhvati pravi kurs i istraži otvoreno more.", },
+   { title: "Ronjenje", img: ronjenje, href: "#",tag:"Druzenje",description: "Oseti vetar, uhvati pravi kurs i istraži otvoreno more.", }
 ];
