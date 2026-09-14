@@ -16,7 +16,6 @@ interface NavLinksModelProps {
 
 export const createNavLinksData = ({
   navigate,
-  keycloak,
   authenticated,
 }: NavLinksModelProps) => [
   {
