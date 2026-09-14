@@ -1,40 +1,21 @@
 import { useAuth } from "../../../../config/AuthProvider";
-
-import {
-  faUser,
-  faBullhorn,
-} from "@fortawesome/free-solid-svg-icons";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router-dom";
+import { createNavLinksData } from "./NavLinksModal";
+
+
+
+
 
 export const NavLinks = () => {
   const { keycloak, authenticated } = useAuth();
+  const navigate = useNavigate();
+  const navLinksData = createNavLinksData({
+    navigate,
+    keycloak,
+    authenticated,
+  });
 
-  const navLinksData = [
-    {
-      navButton: "Prijavi se",
-      icon: faUser,
-      onClick: () => keycloak.login(),
-    },
-    {
-      navButton: "Registruj se",
-      icon: null,
-      onClick: () => keycloak.register(),
-    },
-    {
-      navButton: "POSTAVI OGLAS",
-      icon: faBullhorn,
-      onClick: () => {
-        if (authenticated) {
-          window.location.href = "#";
-        } else {
-          keycloak.login({
-            redirectUri: window.location.origin + "#",
-          });
-        }
-      },
-    },
-  ];
 
   return (
     <ul className="flex flex-col items-stretch gap-2 md:flex-row md:items-center md:gap-2">
@@ -85,8 +66,7 @@ export const NavLinks = () => {
                     duration-200
                     hover:bg-white/5
                     hover:text-white
-                    md:w-auto
-                  `
+                    md:w-auto`
               }
             >
               {item.icon && (
@@ -95,7 +75,6 @@ export const NavLinks = () => {
                   className="text-xs"
                 />
               )}
-
               <span>{item.navButton}</span>
             </button>
           </li>

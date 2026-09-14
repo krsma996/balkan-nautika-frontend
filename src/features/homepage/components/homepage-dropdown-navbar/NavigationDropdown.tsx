@@ -49,7 +49,7 @@ export const NavigationDropdown = ({label,items,icon}: Props) => {
             inline-flex
             h-[54px]
             items-center
-            gap-2
+            gap-1.5
             border-b-2
             border-transparent
             px-1
