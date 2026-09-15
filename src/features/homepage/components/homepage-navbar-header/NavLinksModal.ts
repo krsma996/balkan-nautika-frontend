@@ -1,44 +1,64 @@
-import {
-  faUser,
-  faBullhorn,
-  faUserPlus,
-} from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../../../config/AuthProvider";
 
-interface NavLinksModelProps {
-  navigate: (path: string) => void;
-  keycloak: {
-    login: (options?: {
-      redirectUri?: string;
-    }) => void;
+export const useNavLinks = () => {
+  const { keycloak, authenticated, initialized } = useAuth();
+  const navigate = useNavigate();
+
+  const firstName = keycloak.tokenParsed?.given_name;
+  const lastName = keycloak.tokenParsed?.family_name;
+
+  const displayName =
+    [firstName, lastName].filter(Boolean).join(" ") ||
+    keycloak.tokenParsed?.preferred_username ||
+    "Korisnik";
+
+  const handleLogin = () => {
+    keycloak.login({
+      redirectUri: window.location.origin,
+    });
   };
-  authenticated: boolean;
-}
 
-export const createNavLinksData = ({
-  navigate,
-  authenticated,
-}: NavLinksModelProps) => [
-  {
-    navButton: "Prijavi se",
-    icon: faUser,
-    onClick: () => navigate("/login"),
-  },
+  const handleRegister = () => {
+    keycloak.register({
+      redirectUri: window.location.origin,
+    });
+  };
 
-  {
-    navButton: "Registruj se",
-    icon: faUserPlus,
-    onClick: () => navigate("/register"),
-  },
+  const handleLogout = () => {
+    keycloak.logout({
+      redirectUri: window.location.origin,
+    });
+  };
 
-  {
-    navButton: "POSTAVI OGLAS",
-    icon: faBullhorn,
-    onClick: () => {
-      if (authenticated) {
-        navigate("/postavi-oglas");
-      } else {
-        navigate("/login");
-      }
-    },
-  },
-];
+  const handlePostAd = () => {
+    if (authenticated) {
+      navigate("/postavi-oglas");
+      return;
+    }
+
+    handleLogin();
+  };
+
+  const handleProfile = () => {
+    navigate("/profil");
+  };
+
+  const handleMyAds = () => {
+    navigate("/moji-oglasi");
+  };
+
+  return {
+    keycloak,
+    initialized,
+    authenticated,
+    displayName,
+
+    handleLogin,
+    handleRegister,
+    handleLogout,
+    handlePostAd,
+    handleProfile,
+    handleMyAds,
+  };
+};
