@@ -1,65 +1,64 @@
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../../../config/AuthProvider";
 
-import {
-  faUser,
-  faBullhorn,
-  faUserPlus,
-} from "@fortawesome/free-solid-svg-icons";
+export const useNavLinks = () => {
+  const { keycloak, authenticated, initialized } = useAuth();
+  const navigate = useNavigate();
 
-interface NavLinksModelProps {
-  navigate: (path: string) => void;
+  const firstName = keycloak.tokenParsed?.given_name;
+  const lastName = keycloak.tokenParsed?.family_name;
 
-  keycloak: {
-    login: (options?: {
-      redirectUri?: string;
-    }) => void;
+  const displayName =
+    [firstName, lastName].filter(Boolean).join(" ") ||
+    keycloak.tokenParsed?.preferred_username ||
+    "Korisnik";
 
-    register: (options?: {
-      redirectUri?: string;
-    }) => void;
+  const handleLogin = () => {
+    keycloak.login({
+      redirectUri: window.location.origin,
+    });
   };
 
-  authenticated: boolean;
-}
+  const handleRegister = () => {
+    keycloak.register({
+      redirectUri: window.location.origin,
+    });
+  };
 
-export const createNavLinksData = ({
-  navigate,
-  keycloak,
-  authenticated,
-}: NavLinksModelProps) => [
-  {
-    navButton: "Prijavi se",
-    icon: faUser,
+  const handleLogout = () => {
+    keycloak.logout({
+      redirectUri: window.location.origin,
+    });
+  };
 
-    onClick: () => {
-      keycloak.login({
-        redirectUri: window.location.origin,
-      });
-    },
-  },
+  const handlePostAd = () => {
+    if (authenticated) {
+      navigate("/postavi-oglas");
+      return;
+    }
 
-  {
-    navButton: "Registruj se",
-    icon: faUserPlus,
+    handleLogin();
+  };
 
-    onClick: () => {
-      keycloak.register({
-        redirectUri: window.location.origin,
-      });
-    },
-  },
+  const handleProfile = () => {
+    navigate("/profil");
+  };
 
-  {
-    navButton: "POSTAVI OGLAS",
-    icon: faBullhorn,
+  const handleMyAds = () => {
+    navigate("/moji-oglasi");
+  };
 
-    onClick: () => {
-      if (authenticated) {
-        navigate("/postavi-oglas");
-      } else {
-        keycloak.login({
-          redirectUri: window.location.origin,
-        });
-      }
-    },
-  },
-];
+  return {
+    keycloak,
+    initialized,
+    authenticated,
+    displayName,
+
+    handleLogin,
+    handleRegister,
+    handleLogout,
+    handlePostAd,
+    handleProfile,
+    handleMyAds,
+  };
+};

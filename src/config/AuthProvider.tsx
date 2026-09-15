@@ -1,6 +1,6 @@
-// src/auth/AuthProvider.tsx
-import React, { createContext, useContext, useEffect, useState } from "react";
-import { keycloak } from "./Keycloack";
+import React, {createContext,useContext,useEffect,useState} from "react";
+import {keycloak,initializeKeycloak} from "./Keycloack";
+
 
 type AuthContextType = {
   initialized: boolean;
@@ -8,37 +8,94 @@ type AuthContextType = {
   keycloak: typeof keycloak;
 };
 
-const AuthContext = createContext<AuthContextType | null>(null);
+const AuthContext =
+  createContext<AuthContextType | null>(null);
 
-export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  const [initialized, setInitialized] = useState(false);
-  const [authenticated, setAuthenticated] = useState(false);
+export const AuthProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
+  const [initialized, setInitialized] =
+    useState(false);
+
+  const [authenticated, setAuthenticated] =
+    useState(false);
 
   useEffect(() => {
-    let isMounted = true;
+    let mounted = true;
 
-    keycloak
-      .init({
-        onLoad: "check-sso",
-        pkceMethod: "S256",
-        silentCheckSsoRedirectUri:
-          window.location.origin + "/silent-check-sso.html",
-      })
-      .then((auth) => {
-        if (!isMounted) return;
-        setAuthenticated(auth);
+    const initialize = async () => {
+      try {
+        const authenticated =
+          await initializeKeycloak();
+
+        if (!mounted) {
+          return;
+        }
+
+        setAuthenticated(authenticated);
         setInitialized(true);
-      })
-      .catch(() => {
-        if (!isMounted) return;
+      } catch (error) {
+        console.error(
+          "Keycloak initialization failed:",
+          error
+        );
+
+        if (!mounted) {
+          return;
+        }
+
         setAuthenticated(false);
         setInitialized(true);
-      });
+      }
+    };
+
+    initialize();
 
     return () => {
-      isMounted = false;
+      mounted = false;
     };
   }, []);
+
+  useEffect(() => {
+    if (!initialized) {
+      return;
+    }
+
+    const handleAuthSuccess = () => {
+      setAuthenticated(true);
+    };
+
+    const handleAuthLogout = () => {
+      setAuthenticated(false);
+    };
+
+    const handleTokenExpired = async () => {
+      try {
+        await keycloak.updateToken(30);
+
+        setAuthenticated(true);
+      } catch (error) {
+        console.error(
+          "Keycloak token refresh failed:",
+          error
+        );
+
+        setAuthenticated(false);
+      }
+    };
+
+    keycloak.onAuthSuccess = handleAuthSuccess;
+    keycloak.onAuthLogout = handleAuthLogout;
+    keycloak.onTokenExpired = handleTokenExpired;
+
+    return () => {
+      keycloak.onAuthSuccess = undefined;
+      keycloak.onAuthLogout = undefined;
+      keycloak.onTokenExpired = undefined;
+    };
+  }, [initialized]);
 
   const value: AuthContextType = {
     initialized,
@@ -46,17 +103,22 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     keycloak,
   };
 
-  if (!initialized) {
-    return <div>Loading auth...</div>;
-  }
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={value}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
 export const useAuth = (): AuthContextType => {
-  const ctx = useContext(AuthContext);
-  if (!ctx) {
-    throw new Error("useAuth must be used inside AuthProvider");
+  const context = useContext(AuthContext);
+
+  if (!context) {
+    throw new Error(
+      "useAuth must be used inside AuthProvider"
+    );
   }
-  return ctx;
+
+  return context;
 };
