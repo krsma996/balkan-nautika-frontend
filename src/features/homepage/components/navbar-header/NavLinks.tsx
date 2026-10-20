@@ -5,7 +5,6 @@ import { useNavLinks } from "../hooks/useNavLinks";
 
 export const NavLinks = () => {
   const {
-    initialized,
     authenticated,
     displayName,
     handleLogin,
@@ -21,11 +20,7 @@ export const NavLinks = () => {
 
       {/* Authentication */}
 
-      {!initialized ? (
-        <li>
-          <div className="h-10 w-24 animate-pulse rounded-lg bg-white/5" />
-        </li>
-      ) : !authenticated ? (
+      {!authenticated ? (
         <>
           <li>
             <button

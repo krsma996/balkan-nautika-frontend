@@ -9,16 +9,21 @@ import { BoatSearchButton } from "./search-boat-categories/BoatSearchButton";
 import { BoatFuel } from "./search-boat-categories/BoatFuel";
 import { BoatYear } from "./search-boat-categories/BoatYear";
 import { BoatBeam } from "./search-boat-categories/BoatBeam";
+import { useState } from "react";
 
-export const SearBoatForm = () => {
+export const SearchBoatForm = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    const formData = new FormData(event.currentTarget);
-    const filters = Object.fromEntries(formData.entries());
-
-    console.log("Boat search filters:", filters);
   };
+
+  const [boatType, setBoatType] = useState("");
+  const [boatModel, setBoatModel] = useState("");
+
+  const handleTypeChange = (type: string) => {
+    setBoatType(type);
+    setBoatModel(""); // resetuj model kad se promeni tip
+  };
+
 
   return (
     <section
@@ -192,8 +197,8 @@ export const SearBoatForm = () => {
                     xl:grid-cols-4
                   "
                 >
-                  <BoatType />
-                  <BoatModels />
+                  <BoatType value={boatType} onChange={handleTypeChange} />
+                  <BoatModels  boatType={boatType} value={boatModel} onChange={setBoatModel}/>
                   <BoatPrice />
                   <BoatFuel />
                 </div>

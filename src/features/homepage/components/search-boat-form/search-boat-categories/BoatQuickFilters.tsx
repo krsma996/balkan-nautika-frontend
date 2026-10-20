@@ -1,6 +1,6 @@
-import {BOAT_QUICK_FILTERS_BUTTONS} from "../search-boat-models/BoatQuickFiltersMode";
+import {BOAT_QUICK_FILTERS_BUTTONS} from "../../models/BoatQuickFiltersModel.types.ts";
 
-
+//TO DO: Mozda bude trebalo da se dodaju brzi filteri iznad forme tako da ovo kurcu nicemu ne sluzi za sada 
 export const BoatQuickFilters = () => {
   return (
     <div className="flex flex-wrap justify-center gap-3 mb-8">

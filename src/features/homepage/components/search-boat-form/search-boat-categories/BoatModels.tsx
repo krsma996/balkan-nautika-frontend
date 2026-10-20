@@ -1,10 +1,20 @@
-import { Tags } from "lucide-react";
+import { Anchor } from "lucide-react";
+import { getBrandsByType } from "../../models/SearchBoatFormModel.types";
 
-export const BoatModels = () => {
+interface BoatModelsProps {
+  boatType: string;
+  value: string;
+  onChange: (value: string) => void;
+}
+
+export const BoatModels = ({ boatType, value, onChange }: BoatModelsProps) => {
+  const options = getBrandsByType(boatType);
+  const disabled = !boatType;
+
   return (
     <div className="form-field">
       <label htmlFor="boat-model" className="form-label">
-        <Tags
+        <Anchor
           aria-hidden="true"
           className="form-label-icon"
           size={16}
@@ -17,17 +27,20 @@ export const BoatModels = () => {
       <select
         id="boat-model"
         name="boatModel"
-        defaultValue=""
+        value={value}
+        disabled={disabled}
+        onChange={(event) => onChange(event.target.value)}
         className="form-control"
       >
-        <option value="" disabled>
-          Izaberite model
+        <option value="">
+          {disabled ? "Prvo izaberite tip plovila" : "Svi modeli"}
         </option>
 
-        <option value="a1">A1</option>
-        <option value="s2">S2</option>
-        <option value="s3">S3</option>
-        <option value="44">44</option>
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
       </select>
     </div>
   );

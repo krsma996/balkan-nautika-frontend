@@ -1,6 +1,12 @@
 import { ShipWheel } from "lucide-react";
+import { NAUTICAL_BRANDS } from "../../models/SearchBoatFormModel.types";
 
-export const BoatType = () => {
+interface BoatTypeProps {
+  value: string;
+  onChange: (value: string) => void;
+}
+
+export const BoatType = ({ value, onChange }: BoatTypeProps) => {
   return (
     <div className="form-field">
       <label htmlFor="boat-type" className="form-label">
@@ -17,17 +23,19 @@ export const BoatType = () => {
       <select
         id="boat-type"
         name="boatType"
-        defaultValue=""
+        value={value}
+        onChange={(event) => onChange(event.target.value)}
         className="form-control"
       >
         <option value="" disabled>
           Izaberite tip plovila
         </option>
 
-        <option value="camac">Čamac</option>
-        <option value="jahta">Jahta</option>
-        <option value="gliser">Gliser</option>
-        <option value="katamaran">Katamaran</option>
+        {NAUTICAL_BRANDS.map((group) => (
+          <option key={group.key} value={group.key}>
+            {group.label}
+          </option>
+        ))}
       </select>
     </div>
   );
