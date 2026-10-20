@@ -2,7 +2,7 @@ import { Footer } from "./components/footer/Footer";
 //import { BoatGrid } from "./components/homepage-carousel-boats/BoatGrid";
 //import { NauticalBusinessDirectoryHub } from "./components/homepage-nautical-directory-carousel/NauticalBusinessDirectoryHub";
 import { NavBarHeader } from "./components/navbar-header/NavBarHeader";
-import { SearBoatForm } from "./components/search-boat-form/SearchBoatForm";
+import { SearchBoatForm } from "./components/search-boat-form/SearchBoatForm";
 import { Activities } from "./components/activities/Activities";
 import { NavbarPrimaryMenu } from "./components/dropdown-navbar/NavbarPrimaryMenu ";
 import { NauticalCategories } from "./components/categories/NauticalCategories";
@@ -15,7 +15,7 @@ export const HomePage = () => {
     <>
       <NavBarHeader />
       <NavbarPrimaryMenu />
-      <SearBoatForm />
+      <SearchBoatForm />
       <NauticalCategories/>
       <HowItWorks/>
       <PremiumAds/>

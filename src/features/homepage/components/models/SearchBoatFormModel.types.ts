@@ -5,12 +5,14 @@ export interface SelectOption {
 }
 
 export interface SelectGroup {
+  key: string;
   label: string;
   options: SelectOption[];
 }
 
 export const NAUTICAL_BRANDS: SelectGroup[] = [
   {
+    key: "pwc",
     label: "Skuteri na vodi (PWC)",
     options: [
       { value: "Sea-doo", label: "Sea-Doo" },
@@ -21,6 +23,7 @@ export const NAUTICAL_BRANDS: SelectGroup[] = [
   },
 
   {
+    key: "motorboats",
     label: "Motorni čamci i gliseri",
     options: [
       { value: "Bayliner", label: "Bayliner" },
@@ -37,6 +40,7 @@ export const NAUTICAL_BRANDS: SelectGroup[] = [
   },
 
   {
+    key: "rib",
     label: "RIB / Gumenjaci",
     options: [
       { value: "Zodiac", label: "Zodiac" },
@@ -50,6 +54,7 @@ export const NAUTICAL_BRANDS: SelectGroup[] = [
   },
 
   {
+    key: "sailing",
     label: "Jedrilice",
     options: [
       { value: "Beneteau", label: "Beneteau" },
@@ -63,6 +68,7 @@ export const NAUTICAL_BRANDS: SelectGroup[] = [
   },
 
   {
+    key: "catamarans",
     label: "Katamarani",
     options: [
       { value: "Lagoon", label: "Lagoon" },
@@ -74,7 +80,8 @@ export const NAUTICAL_BRANDS: SelectGroup[] = [
   },
 
   {
-    label: "Luksuzne jahte",
+    key: "yachts",
+    label: "Jahte",
     options: [
       { value: "Azimut", label: "Azimut" },
       { value: "Sunseeker", label: "Sunseeker" },
@@ -87,6 +94,7 @@ export const NAUTICAL_BRANDS: SelectGroup[] = [
   },
 
   {
+    key: "super-yachts",
     label: "Super i mega jahte",
     options: [
       { value: "Lürssen", label: "Lürssen" },
@@ -98,6 +106,7 @@ export const NAUTICAL_BRANDS: SelectGroup[] = [
   },
 
   {
+    key: "electric-innovative",
     label: "Električna i inovativna plovila",
     options: [
       { value: "Candela", label: "Candela" },
@@ -109,3 +118,7 @@ export const NAUTICAL_BRANDS: SelectGroup[] = [
   },
 ];
 
+
+export const getBrandsByType = (key: string): SelectOption[] => {
+  return NAUTICAL_BRANDS.find((group) => group.key === key)?.options ?? [];
+};
