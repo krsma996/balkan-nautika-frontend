@@ -8,7 +8,7 @@ import {
   faAnchor,
 } from "@fortawesome/free-solid-svg-icons";
 
-import { NAVIGATION_STRUCTURE } from "./NavigationStructureModel";
+import { NAVIGATION_STRUCTURE } from "../models/NavigationStructureModel.types";
 import { NavigationDropdown } from "./NavigationDropdown";
 
 export function NavbarPrimaryMenu() {

@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FooterQuickLinks } from "./FooterQuickLinks";
 import { FooterQuickSearch } from "./FooterQuickSearch";
-import {FOOTER_QUICK_LINKS, FOOTER_QUICK_SEARCH, SOCIAL_MEDIA_LINKS} from "./FooterModel";
+import {FOOTER_QUICK_LINKS, FOOTER_QUICK_SEARCH, SOCIAL_MEDIA_LINKS} from "../models/FooterModel.types";
 
 export const Footer = () => {
   return (

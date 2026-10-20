@@ -1,6 +1,6 @@
 import { faAnchor, faCompass, faShip } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { HOMEPAGE_PREMIUM_PLANS } from "./PremiumAdsModel";
+import { HOMEPAGE_PREMIUM_PLANS } from "../models/PremiumAdsModel.types";
 
 const icons = [faAnchor, faCompass, faShip];
 
@@ -8,18 +8,11 @@ export const PremiumAds = () => {
   return (
     <section className="mx-auto max-w-7xl px-4 py-20">
       <div
-        className="
-          relative
-  overflow-hidden
-  rounded-[2rem]
-  bg-gradient-to-br from-[#222831] via-[#222831] to-[#385170]
-  px-6
-  py-14
-  sm:px-10
-  sm:py-16
-"
-      >
-        {/* Ambient glow — jedan smislen akcenat, ne dekoracija svuda */}
+        className="relative overflow-hidden
+                   rounded-[2rem] bg-gradient-to-br 
+                   from-[#222831] via-[#222831] to-[#385170]
+                   px-6 py-14 sm:px-10 sm:py-16">
+
         <div
           aria-hidden="true"
           className="

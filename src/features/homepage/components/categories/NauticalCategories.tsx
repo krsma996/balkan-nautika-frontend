@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import { NAUTICAL_CATEGORIES_MODEL } from "./NauticalCategoriesModel";
+import { NAUTICAL_CATEGORIES_MODEL } from "../models/NauticalCategoriesModel.types";
 
 export const NauticalCategories = () => {
   return (

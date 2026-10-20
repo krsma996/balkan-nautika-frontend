@@ -1,4 +1,4 @@
-import { FooterGroup } from "./FooterModel";
+import { FooterGroup } from "../models/FooterModel.types";
 
 type Props = FooterGroup;
 

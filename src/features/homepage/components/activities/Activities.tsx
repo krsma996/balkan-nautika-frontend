@@ -1,6 +1,6 @@
 import { ArrowUpRight, Compass, Waves } from "lucide-react";
 import { motion } from "framer-motion";
-import { ACTIVITIES_LINKS } from "./ActivitiesModel";
+import { ACTIVITIES_LINKS } from "../models/ActivitiesModel.types";
 
 
 

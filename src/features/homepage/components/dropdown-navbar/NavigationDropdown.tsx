@@ -4,7 +4,7 @@ import {Menu,MenuButton,MenuItem,MenuItems} from "@headlessui/react";
 import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import type { NavigationGroup } from "./NavigationStructureModel";
+import type { NavigationGroup } from "../models/NavigationStructureModel.types";
 
 
 
