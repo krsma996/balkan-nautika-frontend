@@ -3,7 +3,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {ArrowUpRight,ChevronLeft,ChevronRight,Pause,Play} from "lucide-react";
 import { Link } from "react-router-dom";
 import { ACTIVITIES_LINKS } from "../models/ActivitiesModel.types";
-import {Anchor, Compass,Fish, LifeBuoy,Sailboat, ShieldCheck,Waves} from "lucide-react";
+import {Anchor, Compass,LifeBuoy, ShieldCheck} from "lucide-react";
 
 const SLIDE_DURATION = 7000;
 const EASE = [0.22, 1, 0.36, 1] as const;
