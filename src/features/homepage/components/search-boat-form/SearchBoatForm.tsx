@@ -13,11 +13,6 @@ import { BoatBeam } from "./search-boat-categories/BoatBeam";
 export const SearBoatForm = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    const formData = new FormData(event.currentTarget);
-    const filters = Object.fromEntries(formData.entries());
-
-    console.log("Boat search filters:", filters);
   };
 
   return (

@@ -1,10 +1,19 @@
-import React, {createContext,useContext,useEffect,useState} from "react";
-import {keycloak,initializeKeycloak} from "./Keycloack";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
+import {
+  keycloak,
+  initializeKeycloak,
+} from "./Keycloack";
 
 type AuthContextType = {
   initialized: boolean;
   authenticated: boolean;
+  authError: boolean;
   keycloak: typeof keycloak;
 };
 
@@ -22,19 +31,23 @@ export const AuthProvider = ({
   const [authenticated, setAuthenticated] =
     useState(false);
 
+  const [authError, setAuthError] =
+    useState(false);
+
   useEffect(() => {
     let mounted = true;
 
     const initialize = async () => {
       try {
-        const authenticated =
+        const isAuthenticated =
           await initializeKeycloak();
 
         if (!mounted) {
           return;
         }
 
-        setAuthenticated(authenticated);
+        setAuthenticated(isAuthenticated);
+        setAuthError(false);
         setInitialized(true);
       } catch (error) {
         console.error(
@@ -47,6 +60,7 @@ export const AuthProvider = ({
         }
 
         setAuthenticated(false);
+        setAuthError(true);
         setInitialized(true);
       }
     };
@@ -65,6 +79,7 @@ export const AuthProvider = ({
 
     const handleAuthSuccess = () => {
       setAuthenticated(true);
+      setAuthError(false);
     };
 
     const handleAuthLogout = () => {
@@ -76,6 +91,7 @@ export const AuthProvider = ({
         await keycloak.updateToken(30);
 
         setAuthenticated(true);
+        setAuthError(false);
       } catch (error) {
         console.error(
           "Keycloak token refresh failed:",
@@ -83,6 +99,7 @@ export const AuthProvider = ({
         );
 
         setAuthenticated(false);
+        setAuthError(true);
       }
     };
 
@@ -100,9 +117,9 @@ export const AuthProvider = ({
   const value: AuthContextType = {
     initialized,
     authenticated,
+    authError,
     keycloak,
   };
-
 
   return (
     <AuthContext.Provider value={value}>

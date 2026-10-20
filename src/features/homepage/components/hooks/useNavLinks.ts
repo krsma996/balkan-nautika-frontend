@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../../config/AuthProvider";
 
 export const useNavLinks = () => {
-  const { keycloak, authenticated, initialized } = useAuth();
+  const { keycloak, authenticated } = useAuth();
   const navigate = useNavigate();
 
   const firstName = keycloak.tokenParsed?.given_name;
@@ -50,10 +50,8 @@ export const useNavLinks = () => {
 
   return {
     keycloak,
-    initialized,
     authenticated,
     displayName,
-
     handleLogin,
     handleRegister,
     handleLogout,

@@ -1,4 +1,4 @@
-import {BOAT_QUICK_FILTERS_BUTTONS} from "../search-boat-models/BoatQuickFiltersMode";
+import {BOAT_QUICK_FILTERS_BUTTONS} from "../../models/BoatQuickFiltersModel.types.ts";
 
 
 export const BoatQuickFilters = () => {
