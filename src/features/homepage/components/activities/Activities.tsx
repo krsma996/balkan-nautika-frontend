@@ -1,124 +1,297 @@
-import { ArrowUpRight, Compass, Waves } from "lucide-react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import {ArrowUpRight,ChevronLeft,ChevronRight,Pause,Play} from "lucide-react";
+import { Link } from "react-router-dom";
 import { ACTIVITIES_LINKS } from "../models/ActivitiesModel.types";
 
-
+const SLIDE_DURATION = 7000;
+const EASE = [0.22, 1, 0.36, 1] as const;
+const TOTAL = ACTIVITIES_LINKS.length;
 
 export const Activities = () => {
+  const reduceMotion = useReducedMotion();
+
+  const [active, setActive] = useState(0);
+  const [hoverPaused, setHoverPaused] = useState(false);
+  const [userPaused, setUserPaused] = useState(false);
+
+  const paused = hoverPaused || userPaused || !!reduceMotion;
+
+  const railRef = useRef<HTMLDivElement>(null);
+  const thumbRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const barRefs = useRef<(HTMLSpanElement | null)[]>([]);
+  const elapsed = useRef(0);
+
+  const current = ACTIVITIES_LINKS[active];
+
+  const goTo = (index: number) => setActive((index + TOTAL) % TOTAL);
+
+  // Reset progresa kad se promeni aktivna kartica
+  useEffect(() => {
+    elapsed.current = 0;
+    barRefs.current.forEach((bar) => {
+      if (bar) bar.style.transform = "scaleX(0)";
+    });
+  }, [active]);
+
+  // Autoplay + progress (bez re-rendera na svakom frejmu)
+  useEffect(() => {
+    if (paused) return;
+
+    let raf = 0;
+    let last = performance.now();
+
+    const tick = (now: number) => {
+      elapsed.current += now - last;
+      last = now;
+
+      const progress = Math.min(elapsed.current / SLIDE_DURATION, 1);
+      const bar = barRefs.current[active];
+      if (bar) bar.style.transform = `scaleX(${progress})`;
+
+      if (progress >= 1) {
+        setActive((i) => (i + 1) % TOTAL);
+        return;
+      }
+      raf = requestAnimationFrame(tick);
+    };
+
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [active, paused]);
+
+  // Horizontalno centriranje aktivne sličice (bez skrolovanja cele stranice)
+  useEffect(() => {
+    const rail = railRef.current;
+    const thumb = thumbRefs.current[active];
+    if (!rail || !thumb) return;
+
+    rail.scrollTo({
+      left: thumb.offsetLeft - rail.clientWidth / 2 + thumb.clientWidth / 2,
+      behavior: reduceMotion ? "auto" : "smooth",
+    });
+  }, [active, reduceMotion]);
+
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#f7f8fa] px-5 py-20 text-[#222831] sm:px-8 lg:px-12 lg:py-28">
-      <div className="pointer-events-none absolute -left-32 top-24 h-80 w-80 rounded-full bg-[#8fcbd1]/20 blur-3xl" />
-      <div className="pointer-events-none absolute -right-40 bottom-16 h-96 w-96 rounded-full bg-[#385170]/10 blur-3xl" />
-
-      <div className="relative mx-auto max-w-7xl">
-        <div className="mb-12 grid items-end gap-8 lg:grid-cols-[1fr_0.65fr] lg:gap-16">
-          <div>
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#385170]/15 bg-white/80 px-3.5 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-[#385170] shadow-sm backdrop-blur"
-            >
-              <Waves className="h-3.5 w-3.5" />
-              Doživljaji na vodi
-            </motion.div>
-
-            <motion.h2
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.08 }}
-              className="max-w-3xl text-4xl font-black leading-[1.04] tracking-[-0.04em] sm:text-5xl lg:text-6xl"
-            >
-              Izaberi svoju sledeću
-              <span className="block bg-gradient-to-r from-[#385170] to-[#5d9ca3] bg-clip-text text-transparent">
-                avanturu na moru.
-              </span>
-            </motion.h2>
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.16 }}
-            className="lg:pb-2"
+    <section
+      aria-labelledby="activities-heading"
+      className="relative overflow-hidden px-5 py-20 text-[#222831] sm:px-8 lg:px-12 lg:py-28"
+    >
+      <div className="relative mx-auto max-w-[1400px]">
+        {/* Header */}
+        <div className="mb-10 grid items-end gap-6 lg:grid-cols-[1fr_0.6fr] lg:gap-16">
+          <h2
+            id="activities-heading"
+            className="max-w-3xl text-4xl font-black leading-[1.05] tracking-[-0.03em] sm:text-5xl lg:text-6xl"
           >
-            <p className="max-w-xl text-base leading-7 text-[#222831]/60">
-              Od tihih uvala do otvorenog mora, pronađi iskustvo koje odgovara
-              tvom ritmu i otkrij obalu na potpuno drugačiji način.
-            </p>
-            <a
-              href="#sve-aktivnosti"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#385170] transition-colors hover:text-[#222831]"
-            >
-              Istraži sve aktivnosti
-              <ArrowUpRight className="h-4 w-4" />
-            </a>
-          </motion.div>
+            Izaberi svoju sledeću avanturu na vodi.
+          </h2>
+          <p className="max-w-xl text-base leading-7 text-[#222831]/65 lg:pb-2">
+            Od tihih uvala do otvorenog mora, pronađi iskustvo koje odgovara
+            tvom ritmu i otkrij obalu na potpuno drugačiji način.
+          </p>
         </div>
 
-        <div className="grid auto-rows-[260px] grid-cols-1 gap-5 sm:grid-cols-2 lg:auto-rows-[290px] lg:grid-cols-3">
-          {ACTIVITIES_LINKS.map((activity, index) => {
-            const featured = index === 0;
+        {/* Stage */}
+        <div
+          onMouseEnter={() => setHoverPaused(true)}
+          onMouseLeave={() => setHoverPaused(false)}
+          onFocus={() => setHoverPaused(true)}
+          onBlur={() => setHoverPaused(false)}
+          className="relative isolate flex min-h-[680px] flex-col overflow-hidden rounded-3xl bg-[#111820] shadow-[0_40px_90px_-40px_rgba(17,24,32,0.7)] lg:min-h-[760px]"
+        >
+          {/* Background images */}
+          <div className="absolute inset-0 -z-10" aria-hidden="true">
+            <AnimatePresence initial={false}>
+              <motion.img
+                key={current.id}
+                src={current.img}
+                alt=""
+                initial={{ opacity: 0, scale: reduceMotion ? 1 : 1.12 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{
+                  opacity: { duration: 1, ease: "easeOut" },
+                  scale: { duration: 9, ease: "easeOut" },
+                }}
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </AnimatePresence>
 
-            return (
-              <motion.a
-                key={activity.title}
-                href={activity.href}
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.12 + index * 0.08, duration: 0.5 }}
-                className={`group relative isolate overflow-hidden rounded-[28px] bg-[#222831] shadow-[0_18px_45px_-26px_rgba(34,40,49,0.5)] ring-1 ring-black/5 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_28px_60px_-26px_rgba(34,40,49,0.65)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#385170] focus-visible:ring-offset-4 ${
-                  featured
-                    ? "sm:col-span-2 lg:row-span-2 lg:min-h-[600px]"
-                    : ""
-                }`}
+            {/* Čitljivost teksta */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#111820]/85 via-[#111820]/35 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#111820]/95 via-transparent to-[#111820]/40" />
+          </div>
+
+          {/* Top bar */}
+          <div className="flex items-center justify-between gap-4 p-5 sm:p-8">
+            <p className="text-sm font-semibold text-white/80">
+              Aktivnosti na vodi
+            </p>
+
+            <div className="flex items-center gap-2">
+              <span
+                className="mr-2 text-sm font-semibold tabular-nums text-white/80"
+                aria-hidden="true"
               >
-                <img
-                  src={activity.img}
-                  alt={activity.title}
-                  className="absolute inset-0 h-full w-full object-cover transition duration-700 ease-out group-hover:scale-[1.055]"
-                />
+                {String(active + 1).padStart(2, "0")}
+                <span className="text-white/40">
+                  {" "}
+                  / {String(TOTAL).padStart(2, "0")}
+                </span>
+              </span>
 
-                <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[#111820]/90" />
-                <div className="absolute inset-0 bg-[#385170]/0 transition-colors duration-500 group-hover:bg-[#385170]/10" />
+              <button
+                type="button"
+                onClick={() => goTo(active - 1)}
+                aria-label="Prethodna aktivnost"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white backdrop-blur-md transition-colors hover:bg-white hover:text-[#222831] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              >
+                <ChevronLeft size={18} />
+              </button>
+              <button
+                type="button"
+                onClick={() => goTo(active + 1)}
+                aria-label="Sledeća aktivnost"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white backdrop-blur-md transition-colors hover:bg-white hover:text-[#222831] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              >
+                <ChevronRight size={18} />
+              </button>
+              {!reduceMotion && (
+                <button
+                  type="button"
+                  onClick={() => setUserPaused((p) => !p)}
+                  aria-label={
+                    userPaused ? "Pokreni automatsku smenu" : "Pauziraj automatsku smenu"
+                  }
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white backdrop-blur-md transition-colors hover:bg-white hover:text-[#222831] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                >
+                  {userPaused ? <Play size={16} /> : <Pause size={16} />}
+                </button>
+              )}
+            </div>
+          </div>
 
-                <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full border border-white/20 bg-black/15 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em] text-white backdrop-blur-md sm:left-6 sm:top-6">
-                  <Compass className="h-3 w-3" />
-                  {activity.tag}
+          {/* Active content */}
+          <div
+            className="flex flex-1 items-end px-5 pb-8 sm:px-8 lg:px-12 lg:pb-12"
+            aria-live={paused ? "polite" : "off"}
+          >
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={current.id}
+                initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.45, ease: EASE }}
+                className="max-w-2xl"
+              >
+                <span className="inline-flex rounded-full border border-white/25 bg-white/10 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-white backdrop-blur-md">
+                  {current.tag}
+                </span>
+
+                <h3 className="mt-5 text-5xl font-black leading-[0.98] tracking-[-0.035em] text-white sm:text-6xl lg:text-7xl">
+                  {current.title}
+                </h3>
+
+                <p className="mt-5 max-w-xl text-base leading-7 text-white/75 sm:text-lg sm:leading-8">
+                  {current.description}
+                </p>
+
+                <div className="mt-8 flex flex-wrap items-center gap-3">
+                  {/* Primary CTA */}
+                  <Link
+                    to={current.path}
+                    className="group/cta relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-white py-1.5 pl-6 pr-1.5 text-sm font-bold text-[#222831] transition-colors duration-500 hover:text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/40"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="absolute inset-0 origin-left scale-x-0 rounded-full bg-[#385170] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/cta:scale-x-100 motion-reduce:transition-none"
+                    />
+                    <span className="relative z-10">Saznaj više</span>
+                    <span className="relative z-10 flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-[#222831] text-white transition-colors duration-500 group-hover/cta:bg-white group-hover/cta:text-[#385170]">
+                      <ArrowUpRight
+                        size={18}
+                        className="transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/cta:-translate-y-7 group-hover/cta:translate-x-7"
+                      />
+                      <ArrowUpRight
+                        size={18}
+                        className="absolute -translate-x-7 translate-y-7 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/cta:translate-x-0 group-hover/cta:translate-y-0"
+                      />
+                    </span>
+                  </Link>
+
+                  {/* Secondary CTA */}
+                  <Link
+                    to="/aktivnosti"
+                    className="inline-flex h-[52px] items-center rounded-full border border-white/30 px-6 text-sm font-bold text-white backdrop-blur-md transition-colors hover:bg-white/15 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/40"
+                  >
+                    Sve aktivnosti
+                  </Link>
                 </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
-                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-5 p-5 sm:p-6">
-                  <div className={featured ? "max-w-xl" : "max-w-[80%]"}>
-                    <h3
-                      className={`font-black tracking-[-0.025em] text-white ${
-                        featured
-                          ? "text-3xl sm:text-4xl lg:text-5xl"
-                          : "text-2xl"
-                      }`}
-                    >
-                      {activity.title}
-                    </h3>
-                    <p
-                      className={`mt-2 overflow-hidden leading-6 text-white/70 transition-all duration-500 ${
-                        featured
-                          ? "max-h-20 text-sm opacity-100 sm:text-base"
-                          : "max-h-0 text-sm opacity-0 group-hover:max-h-20 group-hover:opacity-100"
-                      }`}
-                    >
-                      {activity.description}
-                    </p>
-                  </div>
+          {/* Thumbnail rail */}
+          <div
+            ref={railRef}
+            role="tablist"
+            aria-label="Izbor aktivnosti"
+            className="relative flex snap-x gap-3 overflow-x-auto px-5 pb-5 [scrollbar-width:none] sm:px-8 sm:pb-8 lg:px-12 [&::-webkit-scrollbar]:hidden"
+          >
+            {ACTIVITIES_LINKS.map((activity, index) => {
+              const isActive = index === active;
 
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white text-[#222831] shadow-lg transition-all duration-300 group-hover:rotate-6 group-hover:scale-110 group-hover:bg-[#8fcbd1]">
-                    <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              return (
+                <button
+                  key={activity.id}
+                  ref={(el) => {
+                    thumbRefs.current[index] = el;
+                  }}
+                  type="button"
+                  role="tab"
+                  aria-selected={isActive}
+                  aria-label={activity.title}
+                  onClick={() => goTo(index)}
+                  className={`group/thumb relative h-24 w-36 shrink-0 snap-start overflow-hidden rounded-xl text-left transition-all duration-500 sm:h-28 sm:w-48 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white ${
+                    isActive
+                      ? "ring-2 ring-white"
+                      : "opacity-70 ring-1 ring-white/20 hover:opacity-100"
+                  }`}
+                >
+                  <img
+                    src={activity.img}
+                    alt=""
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover/thumb:scale-110 motion-reduce:transition-none"
+                  />
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-gradient-to-t from-[#111820]/90 via-[#111820]/20 to-transparent"
+                  />
+                  <span className="absolute inset-x-3 bottom-3 text-xs font-bold leading-tight text-white sm:text-sm">
+                    {activity.title}
                   </span>
-                </div>
 
-                <div className="pointer-events-none absolute inset-0 rounded-[28px] ring-1 ring-inset ring-white/10" />
-              </motion.a>
-            );
-          })}
+                  {/* Progress */}
+                  {isActive && (
+                    <span className="absolute inset-x-0 bottom-0 h-1 bg-white/25">
+                      <span
+                        ref={(el) => {
+                          barRefs.current[index] = el;
+                        }}
+                        className="block h-full w-full origin-left bg-white"
+                        style={{ transform: "scaleX(0)" }}
+                      />
+                    </span>
+                  )}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
   );
-}
+};
