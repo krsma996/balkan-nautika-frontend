@@ -3,6 +3,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {ArrowUpRight,ChevronLeft,ChevronRight,Pause,Play} from "lucide-react";
 import { Link } from "react-router-dom";
 import { ACTIVITIES_LINKS } from "../models/ActivitiesModel.types";
+import {Anchor, Compass,LifeBuoy, ShieldCheck} from "lucide-react";
 
 const SLIDE_DURATION = 7000;
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -78,19 +79,60 @@ export const Activities = () => {
       className="relative overflow-hidden px-5 py-20 text-[#222831] sm:px-8 lg:px-12 lg:py-28"
     >
       <div className="relative mx-auto max-w-[1400px]">
-        {/* Header */}
-        <div className="mb-10 grid items-end gap-6 lg:grid-cols-[1fr_0.6fr] lg:gap-16">
-          <h2
-            id="activities-heading"
-            className="max-w-3xl text-4xl font-black leading-[1.05] tracking-[-0.03em] sm:text-5xl lg:text-6xl"
-          >
-            Izaberi svoju sledeću avanturu na vodi.
-          </h2>
-          <p className="max-w-xl text-base leading-7 text-[#222831]/65 lg:pb-2">
-            Od tihih uvala do otvorenog mora, pronađi iskustvo koje odgovara
-            tvom ritmu i otkrij obalu na potpuno drugačiji način.
-          </p>
-        </div>
+      {/* Header */}
+<div className="mb-8 grid items-end gap-6 lg:grid-cols-[1fr_0.6fr] lg:gap-16">
+  <div className="flex items-start gap-5">
+    <span
+      aria-hidden="true"
+      className="mt-1 hidden h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#385170] text-white shadow-[0_12px_28px_-12px_rgba(56,81,112,0.7)] sm:flex"
+    >
+      <Anchor size={26} strokeWidth={1.75} />
+    </span>
+
+    <h2
+      id="activities-heading"
+      className="max-w-3xl text-4xl font-black leading-[1.05] tracking-[-0.03em] sm:text-5xl lg:text-6xl"
+    >
+      Izaberi svoju sledeću avanturu na vodi.
+    </h2>
+  </div>
+
+  <p className="max-w-xl text-base leading-7 text-[#222831]/65 lg:pb-2">
+    Od tihih uvala do otvorenog mora, pronađi iskustvo koje odgovara tvom
+    ritmu i otkrij obalu na potpuno drugačiji način.
+  </p>
+</div>
+
+{/* Prednosti */}
+<ul className="mb-6 grid grid-cols-1 divide-y divide-[#385170]/10 overflow-hidden rounded-2xl border border-[#385170]/10 bg-white/70 backdrop-blur sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+  {[
+    {
+      icon: Compass,
+      title: "Iskusni vodiči",
+      text: "Lokalni stručnjaci na svakoj turi",
+    },
+    {
+      icon: LifeBuoy,
+      title: "Oprema uključena",
+      text: "Sigurnosna oprema je u ceni",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Proverene usluge",
+      text: "Sertifikovani organizatori",
+    },
+  ].map(({ icon: Icon, title, text }) => (
+    <li key={title} className="flex items-center gap-4 px-5 py-4">
+      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#385170]/10 text-[#385170]">
+        <Icon size={20} strokeWidth={1.75} />
+      </span>
+      <div>
+        <p className="text-sm font-bold text-[#222831]">{title}</p>
+        <p className="text-xs leading-5 text-[#222831]/60">{text}</p>
+      </div>
+    </li>
+  ))}
+</ul>
 
         {/* Stage */}
         <div
