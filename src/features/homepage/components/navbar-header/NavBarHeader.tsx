@@ -64,20 +64,10 @@ export const NavBarHeader = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className="
-                      flex
-                      h-8
-                      w-8
-                      items-center
-                      justify-center
-                      rounded-full
-                      text-white/45
-                      transition-all
-                      duration-200
-                      hover:bg-white/10
-                      hover:text-white
-                    "
-                  >
+                    className="flex h-8 w-8  items-center justify-center 
+                               rounded-full text-white/45 transition-all 
+                               duration-200 hover:bg-white/10 hover:text-white"
+                    >
                     <FontAwesomeIcon
                       icon={icon}
                       className="text-sm"

@@ -1,7 +1,7 @@
 import {Menu,MenuButton,MenuItem,MenuItems} from "@headlessui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faBullhorn,faRightFromBracket,faUser,faUserPlus} from "@fortawesome/free-solid-svg-icons";
-import { useNavLinks } from "./NavLinksModal";
+import { useNavLinks } from "../hooks/useNavLinks";
 
 export const NavLinks = () => {
   const {
