@@ -45,19 +45,22 @@ export const NauticalCategories = () => {
                 src={cat.img}
                 alt={cat.title}
                 loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover/card:scale-[1.06] motion-reduce:transition-none"
+                className="h-full w-full object-cover transition-transform duration-700 
+                          ease-out group-hover/card:scale-[1.06] motion-reduce:transition-none"
               />
 
               {/* Base shade */}
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#222831]/35 via-transparent to-transparent"
+                className="pointer-events-none absolute inset-0 
+                           bg-gradient-to-t from-[#222831]/35 via-transparent to-transparent"
               />
 
               {/* Brand tint on hover */}
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-0 bg-[#385170]/0 mix-blend-multiply transition-colors duration-500 group-hover/card:bg-[#385170]/25"
+                className="pointer-events-none absolute inset-0 bg-[#385170]/0 
+                           mix-blend-multiply transition-colors duration-500 group-hover/card:bg-[#385170]/25"
               />
             </div>
 
@@ -107,11 +110,13 @@ export const NauticalCategories = () => {
                 >
                   <ArrowUpRight
                     size={18}
-                    className="transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/card:translate-x-7 group-hover/card:-translate-y-7"
+                    className="transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] 
+                               group-hover/card:translate-x-7 group-hover/card:-translate-y-7"
                   />
                   <ArrowUpRight
                     size={18}
-                    className="absolute -translate-x-7 translate-y-7 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/card:translate-x-0 group-hover/card:translate-y-0"
+                    className="absolute -translate-x-7 translate-y-7 transition-transform duration-500 
+                               ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/card:translate-x-0 group-hover/card:translate-y-0"
                   />
                 </span>
               </span>
@@ -120,7 +125,8 @@ export const NauticalCategories = () => {
             {/* Bottom accent line */}
             <span
               aria-hidden="true"
-              className="absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-[#385170] transition-transform duration-500 ease-out group-hover/card:scale-x-100"
+              className="absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 
+                         bg-[#385170] transition-transform duration-500 ease-out group-hover/card:scale-x-100"
             />
           </a>
         ))}
