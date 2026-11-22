@@ -2,11 +2,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FooterQuickLinks } from "./FooterQuickLinks";
 import { FooterQuickSearch } from "./FooterQuickSearch";
-import {
-  FOOTER_QUICK_LINKS,
-  FOOTER_QUICK_SEARCH,
-  SOCIAL_MEDIA_LINKS,
-} from "../models/FooterModel.types";
+import {FOOTER_QUICK_LINKS,FOOTER_QUICK_SEARCH,SOCIAL_MEDIA_LINKS} from "../models/FooterModel.types";
+
+
+
 
 export const Footer = () => {
   return (
@@ -131,18 +130,14 @@ export const Footer = () => {
                     bg-white/[0.035]
                     text-white/50
                     transition-all duration-300
-
                     hover:-translate-y-1
                     hover:border-[#7897B7]/50
                     hover:bg-[#385170]/30
                     hover:text-white
                     hover:shadow-[0_5px_18px_rgba(56,81,112,0.2)]
-
                     focus-visible:outline-none
                     focus-visible:ring-2
-                    focus-visible:ring-[#8BA7C5]
-                  "
-                >
+                    focus-visible:ring-[#8BA7C5]">
                   <FontAwesomeIcon
                     icon={icon}
                     className="text-[14px]"

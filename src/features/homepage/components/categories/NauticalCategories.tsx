@@ -1,4 +1,5 @@
-import { ArrowUpRight } from "lucide-react";
+
+import { ArrowUpRight, Compass } from "lucide-react";
 import { NAUTICAL_CATEGORIES_MODEL } from "../models/NauticalCategoriesModel.types";
 
 const DEFAULT_DESCRIPTION =
@@ -6,130 +7,364 @@ const DEFAULT_DESCRIPTION =
 
 export const NauticalCategories = () => {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16">
-      {/* Header */}
-      <div className="flex justify-center">
-        <h1 className="inline-flex items-center gap-4 text-base font-semibold uppercase tracking-[0.35em] text-[#385170] md:text-lg">
-          <span className="h-px w-10 bg-[#385170]/40" />
-          PLOVILA • MARINE • OPREMA • SERVISI
-          <span className="h-px w-10 bg-[#385170]/40" />
-        </h1>
-      </div>
+    <section
+      aria-labelledby="nautical-categories-title"
+      className="
+        relative isolate overflow-hidden
+        py-20 sm:py-24 lg:py-28
+      "
+    >
+      {/* BACKGROUND DECORATION */}
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none absolute
+          -left-64 top-20 -z-10
+          h-[500px] w-[500px]
+          rounded-full bg-[#385170]/[0.07]
+          blur-[130px]
+        "
+      />
 
-      <p className="mx-auto mt-6 max-w-2xl text-center text-base leading-7 text-[#222831]/70 sm:text-lg sm:leading-8 md:text-xl">
-        Izaberite kategoriju i pronađite plovila, opremu, marine, servise i
-        usluge koje odgovaraju vašim potrebama.
-      </p>
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none absolute
+          -right-64 bottom-0 -z-10
+          h-[500px] w-[500px]
+          rounded-full bg-[#7897B7]/[0.09]
+          blur-[140px]
+        "
+      />
 
-      {/* Grid */}
-      <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {NAUTICAL_CATEGORIES_MODEL.map((cat) => (
-          <a
-            key={cat.title}
-            href={cat.href ?? "#"}
-            aria-label={`${cat.title} – pogledaj ponudu`}
-            className="
-              group/card relative flex flex-col overflow-hidden rounded-2xl
-              border border-[#385170]/10 bg-white
-              shadow-[0_1px_2px_rgba(34,40,49,0.04),0_8px_24px_-12px_rgba(34,40,49,0.12)]
-              transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
-              hover:-translate-y-1.5 hover:border-[#385170]/30
-              hover:shadow-[0_24px_48px_-16px_rgba(34,40,49,0.28)]
-              focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#385170]/30
-              motion-reduce:transition-none motion-reduce:hover:translate-y-0
-            "
-          >
-            {/* Image */}
-            <div className="relative aspect-[4/3] overflow-hidden bg-[#e7eaf6]">
-              <img
-                src={cat.img}
-                alt={cat.title}
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-700 
-                          ease-out group-hover/card:scale-[1.06] motion-reduce:transition-none"
-              />
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-              {/* Base shade */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 
-                           bg-gradient-to-t from-[#222831]/35 via-transparent to-transparent"
-              />
+        {/* SECTION HEADER */}
+        <div className="
+          mb-12 flex flex-col
+          gap-7
+          lg:mb-14 lg:flex-row
+          lg:items-end lg:justify-between
+        ">
 
-              {/* Brand tint on hover */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 bg-[#385170]/0 
-                           mix-blend-multiply transition-colors duration-500 group-hover/card:bg-[#385170]/25"
-              />
+          {/* Heading */}
+          <div className="max-w-2xl">
+
+            {/* Eyebrow */}
+            <div className="
+              mb-5 inline-flex items-center gap-3
+            ">
+              <span className="
+                flex h-8 w-8 items-center justify-center
+                rounded-lg border border-[#385170]/15
+                bg-white/70 text-[#385170]
+                shadow-sm
+              ">
+                <Compass size={16} strokeWidth={1.8} />
+              </span>
+
+              <span className="
+                text-[11px] font-bold uppercase
+                tracking-[0.22em] text-[#385170]/75
+              ">
+                NAUTIKA OGLASI · ISTRAŽITE
+              </span>
+
+              <span className="
+                h-px w-10 bg-[#385170]/30
+              " />
             </div>
 
-            {/* Content */}
-            <div className="flex flex-1 flex-col justify-between gap-6 p-6">
-              <div>
-                <h3 className="text-2xl font-bold tracking-tight text-[#222831]">
-                  {cat.title}
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-[#222831]/65">
-                  {cat.description ?? DEFAULT_DESCRIPTION}
-                </p>
-              </div>
+            {/* Main title */}
+            <h2
+              id="nautical-categories-title"
+              className="
+                font-[Roboto_Condensed]
+                text-4xl font-bold
+                leading-[1.08] tracking-tight
+                text-[#222831]
+                sm:text-5xl lg:text-[56px]
+              "
+            >
+              Sve za vaš svet
+              <span className="
+                block mt-1
+                bg-gradient-to-r
+                from-[#385170] to-[#7897B7]
+                bg-clip-text text-transparent
+              ">
+                nautike.
+              </span>
+            </h2>
 
-              {/* CTA */}
-              <span
-                className="
-                  relative inline-flex w-full items-center justify-between
-                  overflow-hidden rounded-full border border-[#385170]/25
-                  bg-white py-1.5 pl-5 pr-1.5 text-sm font-semibold text-[#385170]
-                  transition-colors duration-500
-                  group-hover/card:border-[#385170] group-hover/card:text-white
-                  motion-reduce:transition-none
-                "
-              >
-                {/* Sliding fill */}
-                <span
-                  aria-hidden="true"
+          </div>
+
+          {/* Description */}
+          <div className="
+            max-w-md lg:pb-1
+          ">
+            <p className="
+              text-base leading-7
+              text-[#385170]/80
+              sm:text-[17px] sm:leading-8
+            ">
+              Od plovila i nautičke opreme do marina,
+              servisa i specijalizovanih usluga.
+              Istražite sve oblasti nautičkog sveta
+              na jednom mestu.
+            </p>
+
+            <div className="
+              mt-5 flex items-center gap-3
+            ">
+              <span className="
+                h-px w-8 bg-[#7897B7]
+              "/>
+
+              <span className="
+                text-[10px] font-bold uppercase
+                tracking-[0.18em] text-[#385170]/60
+              ">
+                Otkrijte kategorije
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+        {/* CATEGORY GRID */}
+        <div className="
+          grid grid-cols-1 gap-5
+          sm:grid-cols-2
+          lg:grid-cols-4
+          lg:gap-6
+        ">
+
+          {NAUTICAL_CATEGORIES_MODEL.map((cat, index) => (
+
+            <a
+              key={cat.title}
+              href={cat.href ?? "#"}
+              aria-label={`${cat.title} – istražite kategoriju`}
+              className="
+                group/card relative isolate
+                flex min-h-[390px]
+                flex-col justify-between
+                overflow-hidden rounded-[22px]
+                border border-[#385170]/15
+                bg-[#222831]
+                shadow-[0_8px_30px_rgba(34,40,49,0.10)]
+
+                transition-all duration-500
+                ease-[cubic-bezier(0.22,1,0.36,1)]
+
+                hover:-translate-y-2
+                hover:border-[#7897B7]/60
+                hover:shadow-[0_24px_50px_rgba(34,40,49,0.22)]
+
+                focus-visible:outline-none
+                focus-visible:ring-4
+                focus-visible:ring-[#385170]/30
+
+                motion-reduce:transition-none
+                motion-reduce:hover:translate-y-0
+              "
+            >
+
+              {/* IMAGE */}
+              <div className="
+                absolute inset-0 -z-20
+                overflow-hidden bg-[#222831]
+              ">
+                <img
+                  src={cat.img}
+                  alt={cat.title}
+                  loading="lazy"
                   className="
-                    absolute inset-0 origin-left scale-x-0 rounded-full bg-[#385170]
-                    transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
-                    group-hover/card:scale-x-100
+                    h-full w-full object-cover
+                    transition-transform duration-1000
+                    ease-[cubic-bezier(0.22,1,0.36,1)]
+                    group-hover/card:scale-[1.09]
                     motion-reduce:transition-none
                   "
                 />
+              </div>
 
-                <span className="relative z-10">Pogledaj ponudu</span>
+              {/* IMAGE OVERLAY */}
+              <div
+                aria-hidden="true"
+                className="
+                  absolute inset-0 -z-10
+                  bg-gradient-to-b
+                  from-[#222831]/20
+                  via-[#222831]/10
+                  to-[#222831]/95
+                  transition-all duration-500
+                  group-hover/card:from-[#222831]/30
+                  group-hover/card:to-[#222831]/95
+                "
+              />
 
-                {/* Arrow swap */}
-                <span
-                  className="
-                    relative z-10 flex h-9 w-9 items-center justify-center
-                    overflow-hidden rounded-full bg-[#385170] text-white
-                    transition-colors duration-500
-                    group-hover/card:bg-white group-hover/card:text-[#385170]
-                  "
-                >
-                  <ArrowUpRight
-                    size={18}
-                    className="transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] 
-                               group-hover/card:translate-x-7 group-hover/card:-translate-y-7"
-                  />
-                  <ArrowUpRight
-                    size={18}
-                    className="absolute -translate-x-7 translate-y-7 transition-transform duration-500 
-                               ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/card:translate-x-0 group-hover/card:translate-y-0"
-                  />
+              {/* TOP DETAILS */}
+              <div className="
+                flex items-start justify-between
+                p-5 sm:p-6
+              ">
+
+                {/* Category number */}
+                <span className="
+                  flex h-9 min-w-9
+                  items-center justify-center
+                  rounded-lg
+                  border border-white/20
+                  bg-[#222831]/35
+                  px-2
+                  text-xs font-bold
+                  tracking-wider text-white/90
+                  backdrop-blur-md
+                ">
+                  0{index + 1}
                 </span>
-              </span>
-            </div>
 
-            {/* Bottom accent line */}
-            <span
-              aria-hidden="true"
-              className="absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 
-                         bg-[#385170] transition-transform duration-500 ease-out group-hover/card:scale-x-100"
-            />
-          </a>
-        ))}
+                {/* Decorative indicator */}
+                <span className="
+                  flex h-9 w-9
+                  items-center justify-center
+                  rounded-full
+                  border border-white/20
+                  bg-[#222831]/30
+                  text-white/80
+                  backdrop-blur-md
+                  transition-all duration-300
+
+                  group-hover/card:rotate-45
+                  group-hover/card:border-[#8BA7C5]
+                  group-hover/card:bg-[#385170]
+                ">
+                  <ArrowUpRight size={17} />
+                </span>
+
+              </div>
+
+              {/* BOTTOM CONTENT */}
+              <div className="
+                mt-auto p-5 sm:p-6
+              ">
+
+                {/* Accent */}
+                <span className="
+                  mb-4 block h-[2px] w-9
+                  bg-[#8BA7C5]
+                  transition-all duration-500
+                  group-hover/card:w-16
+                "/>
+
+                {/* Title */}
+                <h3 className="
+                  font-[Roboto_Condensed]
+                  text-[27px] font-bold
+                  leading-tight tracking-tight
+                  text-white
+                  sm:text-[29px]
+                ">
+                  {cat.title}
+                </h3>
+
+                {/* Description */}
+                <p className="
+                  mt-3 max-w-[280px]
+                  text-sm leading-6
+                  text-white/65
+                  transition-colors duration-300
+                  group-hover/card:text-white/80
+                ">
+                  {cat.description ?? DEFAULT_DESCRIPTION}
+                </p>
+
+                {/* CTA */}
+                <div className="
+                  mt-6 flex items-center
+                  justify-between
+                  border-t border-white/20
+                  pt-4
+                ">
+
+                  <span className="
+                    text-[11px] font-bold
+                    uppercase tracking-[0.15em]
+                    text-[#B4C9DF]
+                    transition-colors duration-300
+                    group-hover/card:text-white
+                  ">
+                    Istražite kategoriju
+                  </span>
+
+                  <ArrowUpRight
+                    size={17}
+                    className="
+                      text-[#B4C9DF]
+                      transition-all duration-300
+                      group-hover/card:translate-x-1
+                      group-hover/card:-translate-y-1
+                      group-hover/card:text-white
+                    "
+                  />
+
+                </div>
+
+              </div>
+
+              {/* BOTTOM ACCENT */}
+              <span
+                aria-hidden="true"
+                className="
+                  absolute bottom-0 left-0
+                  h-[3px] w-full
+                  origin-left scale-x-0
+                  bg-gradient-to-r
+                  from-[#385170] to-[#B4C9DF]
+                  transition-transform duration-500
+                  group-hover/card:scale-x-100
+                "
+              />
+
+            </a>
+
+          ))}
+
+        </div>
+
+        {/* SECTION FOOTER */}
+        <div className="
+          mt-9 flex flex-col
+          items-center justify-between
+          gap-4 border-t border-[#385170]/10
+          pt-6 sm:flex-row
+        ">
+
+          <p className="
+            text-xs leading-5
+            text-[#385170]/55
+          ">
+            Jedno mesto. Sve oblasti nautičkog sveta.
+          </p>
+
+          <div className="
+            flex items-center gap-2
+            text-[#385170]/60
+          ">
+            <Compass size={14} strokeWidth={1.8} />
+
+            <span className="
+              text-[10px] font-bold
+              uppercase tracking-[0.17em]
+            ">
+              Otkrijte nautiku
+            </span>
+          </div>
+
+        </div>
+
       </div>
     </section>
   );

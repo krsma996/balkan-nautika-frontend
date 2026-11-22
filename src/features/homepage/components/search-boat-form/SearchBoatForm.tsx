@@ -1,13 +1,6 @@
 import type { FormEvent, ReactNode } from "react";
 import { useState } from "react";
-import {
-  Anchor,
-  Compass,
-  ShieldCheck,
-  SlidersHorizontal,
-  Waves,
-} from "lucide-react";
-
+import {Anchor,Compass,ShieldCheck,SlidersHorizontal,Waves} from "lucide-react";
 import { BoatBeam } from "./search-boat-categories/BoatBeam";
 import { BoatCondition } from "./search-boat-categories/BoatCondition";
 import { BoatFeaturesCheckBox } from "./search-boat-categories/BoatFeaturesCheckBox";
@@ -19,10 +12,8 @@ import { BoatRegion } from "./search-boat-categories/BoatRegion";
 import { BoatSearchButton } from "./search-boat-categories/BoatSearchButton";
 import { BoatType } from "./search-boat-categories/BoatType";
 import { BoatYear } from "./search-boat-categories/BoatYear";
+import { BoatCountry } from "./search-boat-categories/BoatCountry";
 
-/* ------------------------------------------------------------------ */
-/* Helper: jedan red filtera (naslov levo, polja desno)                */
-/* ------------------------------------------------------------------ */
 
 type FilterGroupProps = {
   id: string;
@@ -58,9 +49,7 @@ const FilterGroup = ({ id, title, description, children }: FilterGroupProps) => 
   </div>
 );
 
-/* ------------------------------------------------------------------ */
-/* Komponenta                                                          */
-/* ------------------------------------------------------------------ */
+
 
 const highlights = [
   { icon: ShieldCheck, label: "Jednostavna pretraga" },
@@ -209,6 +198,7 @@ export const SearchBoatForm = () => {
               >
                 <div className="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2 xl:grid-cols-3">
                   <BoatYear />
+                  <BoatCountry/>
                   <BoatRegion />
                   <BoatCondition />
                   <BoatMaterialType />
@@ -216,11 +206,11 @@ export const SearchBoatForm = () => {
                 </div>
               </FilterGroup>
 
-              {/* Oprema */}
+              {/* Kredit */}
               <FilterGroup
                 id="features-filters-title"
-                title="Oprema"
-                description="Izaberite opremu koju plovilo mora da ima."
+                title="Kredit"
+                description="Pogledajte plovila koja se mogu kupiti na kredit."
               >
                 <BoatFeaturesCheckBox />
               </FilterGroup>
