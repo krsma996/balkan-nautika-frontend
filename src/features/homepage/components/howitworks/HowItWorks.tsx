@@ -1,209 +1,159 @@
-import { Search, MessageCircle, CheckCircle } from "lucide-react";
+
+import {ArrowUpRight,ShieldCheck,Check,Compass} from "lucide-react";
+import {STEPS} from "../models/HowItWorksModel";
+
+
 
 export const HowItWorks = () => {
-  const steps = [
-    {
-      title: "Pretraži oglase",
-      desc: "Pronađi plovila, opremu ili usluge koristeći jednostavnu pretragu.",
-      icon: Search,
-    },
-    {
-      title: "Kontaktiraj direktno",
-      desc: "Javi se prodavcu bez posrednika i dogovori detalje.",
-      icon: MessageCircle,
-    },
-    {
-      title: "Kupi ili prodaj",
-      desc: "Zaključi dogovor brzo i bez komplikacija.",
-      icon: CheckCircle,
-    },
-  ];
-
   return (
-    <section className="relative max-w-7xl mx-auto px-4 py-28 overflow-hidden">
-      {/* Background Blur Effects */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-[#385170]/10 rounded-full blur-[140px] pointer-events-none" />
-
-      <div className="absolute -top-32 -left-32 w-72 h-72 bg-white/30 rounded-full blur-[120px]" />
-
-      <div className="absolute bottom-0 -right-32 w-80 h-80 bg-[#385170]/10 rounded-full blur-[140px]" />
-
-      {/* Header */}
-      <div className="relative text-center max-w-3xl mx-auto mb-20">
-        <h2
-          className="
-            mt-6
-            text-5xl
-            md:text-6xl
-            font-bold
-            text-[#222831]
-            tracking-tight
-          "
-        >
-          Kako funkcioniše ?
-        </h2>
-
-        <p className="mt-6 text-lg md:text-xl text-gray-600 leading-relaxed">
-          Sve što vam je potrebno za kupovinu ili prodaju plovila,
-          opreme i nautičkih usluga na jednom mestu.
-        </p>
+    <section className="relative isolate overflow-hidden py-24 sm:py-28">
+      {/* Background decoration */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+      >
+        <div className="absolute -top-40 left-1/2 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-[#385170]/[0.07] blur-[120px]" />
+        <div className="absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-white/70 blur-[100px]" />
+        <div className="absolute -right-40 top-1/3 h-[400px] w-[400px] rounded-full bg-[#7897B7]/[0.08] blur-[120px]" />
       </div>
 
-      {/* Cards */}
-      <div className="relative grid gap-8 md:grid-cols-3">
-        {/* Connection Line */}
-        <div
-          className="
-            hidden
-            md:block
-            absolute
-            top-12
-            left-[16%]
-            right-[16%]
-            h-[2px]
-            bg-gradient-to-r
-            from-transparent
-            via-[#385170]/30
-            to-transparent
-          "
-        />
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-        {steps.map((step, index) => {
-          const Icon = step.icon;
+        {/* SECTION HEADER */}
+        <div className="mb-12 flex flex-col gap-7 lg:mb-14 lg:flex-row lg:items-end lg:justify-between">
 
-          return (
-            <div
-              key={index}
-              className="
-                group
-                relative
-                overflow-hidden
-                rounded-[32px]
-                p-[1px]
-                bg-gradient-to-br
-                from-white/80
-                via-white/40
-                to-[#385170]/20
-                backdrop-blur-xl
-                transition-all
-                duration-500
-                hover:-translate-y-3
-                hover:scale-[1.02]
-              "
-            >
-              {/* Hover Glow */}
-              <div
-                className="
-                  absolute
-                  inset-0
-                  opacity-0
-                  group-hover:opacity-100
-                  transition-all
-                  duration-500
-                  bg-[radial-gradient(circle_at_top_left,rgba(56,81,112,0.25),transparent_55%)]
-                "
-              />
+          {/* Heading */}
+          <div className="max-w-2xl">
 
-              {/* Reflection */}
-              <div
-                className="
-                  absolute
-                  -top-10
-                  -left-24
-                  w-32
-                  h-[200%]
-                  rotate-12
-                  bg-white/20
-                  opacity-0
-                  group-hover:opacity-100
-                  transition-all
-                  duration-700
-                "
-              />
+            {/* Eyebrow */}
+            <div className="mb-5 inline-flex items-center gap-3">
+              <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#385170]/15 bg-white/70 text-[#385170] shadow-sm">
+                <Compass size={16} strokeWidth={1.8} />
+              </span>
 
-              {/* Inner Card */}
-              <div
-                className="
-                  relative
-                  h-full
-                  rounded-[31px]
-                  bg-white/60
-                  backdrop-blur-2xl
-                  border
-                  border-white/50
-                  p-8
-                  shadow-[0_8px_32px_rgba(31,38,135,0.10)]
-                "
-              >
-                {/* Huge Number */}
-                <div
-                  className="
-                    absolute
-                    top-4
-                    right-6
-                    text-7xl
-                    font-black
-                    text-[#385170]/10
-                    select-none
-                  "
-                >
-                  0{index + 1}
-                </div>
+              <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#385170]/75">
+                NAUTIKA OGLASI · JEDNOSTAVAN PROCES
+              </span>
 
-                {/* Icon */}
-                <div
-                  className="
-                    relative
-                    w-16
-                    h-16
-                    rounded-2xl
-                    flex
-                    items-center
-                    justify-center
-                    mb-6
-                    bg-gradient-to-br
-                    from-[#222831]
-                    via-[#2e3640]
-                    to-[#385170]
-                    shadow-xl
-                  "
-                >
-                  <div className="absolute inset-0 rounded-2xl bg-white/10" />
-
-                  <Icon
-                    size={30}
-                    className="text-white relative z-10"
-                  />
-                </div>
-
-                {/* Title */}
-                <h3 className="text-xl font-semibold text-[#222831] mb-4">
-                  {step.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-gray-600 leading-relaxed">
-                  {step.desc}
-                </p>
-
-                {/* Hover Line */}
-                <div
-                  className="
-                    mt-8
-                    h-[2px]
-                    w-0
-                    bg-gradient-to-r
-                    from-[#385170]
-                    to-transparent
-                    group-hover:w-full
-                    transition-all
-                    duration-700
-                  "
-                />
-              </div>
+              <span className="h-px w-10 bg-[#385170]/30" />
             </div>
-          );
-        })}
+
+            {/* Main title */}
+            <h2
+              id="how-it-works-title"
+              className="font-[Roboto_Condensed] text-4xl font-bold leading-[1.08] tracking-tight text-[#222831] sm:text-5xl lg:text-[56px]"
+            >
+              Kako funkcioniše
+              <span className="mt-1 block bg-gradient-to-r from-[#385170] to-[#7897B7] bg-clip-text text-transparent">
+                Nautika Oglasi?
+              </span>
+            </h2>
+          </div>
+
+          {/* Description */}
+          <div className="max-w-xl lg:pb-1">
+            <p className="text-base leading-8 text-[#222831]/65 sm:text-lg">
+              Sve što vam je potrebno za kupovinu, prodaju i pronalaženje
+              nautičkih usluga. Tri jednostavna koraka vode vas od pretrage
+              do direktnog kontakta sa prodavcem.
+            </p>
+          </div>
+
+        </div>
+
+        {/* Steps */}
+        <div className="relative grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-6">
+
+          {/* Connecting line */}
+          <div
+            aria-hidden="true"
+            className="absolute left-[16.5%] right-[16.5%] top-[43px] hidden h-px bg-gradient-to-r from-transparent via-[#385170]/25 to-transparent md:block"
+          />
+
+          {STEPS.map((step) => {
+            const Icon = step.icon;
+
+            return (
+              <article
+                key={step.number}
+                className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-[#385170]/10 bg-white/75 p-7 shadow-[0_8px_30px_rgba(34,40,49,0.045)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-[#385170]/25 hover:bg-white hover:shadow-[0_20px_50px_rgba(34,40,49,0.10)] sm:p-8"
+              >
+                {/* Card top */}
+                <div className="relative z-10 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#385170]/10 bg-[#e7eaf6] text-[#385170] transition-all duration-300 group-hover:border-[#385170] group-hover:bg-[#385170] group-hover:text-white">
+                      <Icon size={20} strokeWidth={1.9} />
+                    </div>
+
+                    <span className="text-[10px] font-bold tracking-[0.16em] text-[#385170]/70">
+                      KORAK {step.number}
+                    </span>
+                  </div>
+
+                  <span className="text-4xl font-bold tracking-tighter text-[#385170]/[0.12] transition-colors duration-300 group-hover:text-[#385170]/25">
+                    {step.number}
+                  </span>
+                </div>
+
+                {/* Card content */}
+                <div className="mt-9 flex flex-1 flex-col">
+                  <h3 className="max-w-[280px] text-2xl font-bold leading-tight tracking-tight text-[#222831]">
+                    {step.title}
+                  </h3>
+
+                  <p className="mt-4 text-sm leading-7 text-[#222831]/65">
+                    {step.description}
+                  </p>
+
+                  {/* Highlights */}
+                  <div className="mt-7 flex flex-col gap-3 border-t border-[#385170]/10 pt-6">
+                    {step.highlights.map((highlight) => (
+                      <div
+                        key={highlight}
+                        className="flex items-center gap-2.5"
+                      >
+                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#385170]/[0.08] text-[#385170]">
+                          <Check size={12} strokeWidth={2.5} />
+                        </span>
+
+                        <span className="text-xs font-medium text-[#222831]/75">
+                          {highlight}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Bottom accent */}
+                <div className="absolute bottom-0 left-0 h-[3px] w-0 bg-gradient-to-r from-[#385170] to-[#8BA7C5] transition-all duration-500 group-hover:w-full" />
+              </article>
+            );
+          })}
+        </div>
+
+        {/* Trust / information strip */}
+        <div className="mt-10 flex flex-col items-center justify-between gap-5 rounded-2xl border border-[#385170]/10 bg-white/55 px-6 py-6 shadow-sm backdrop-blur-md sm:flex-row sm:px-8">
+          <div className="flex items-center gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#222831] text-white shadow-md">
+              <ShieldCheck size={23} strokeWidth={1.8} />
+            </div>
+
+            <div>
+              <p className="text-sm font-bold text-[#222831]">
+                Vaša sledeća nautička avantura počinje ovde.
+              </p>
+              <p className="mt-1 text-xs leading-5 text-[#222831]/55">
+                Jedinstveno mesto za nautičke oglase, opremu i usluge.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-[#385170]">
+            <span>Otkrijte Nautiku</span>
+            <ArrowUpRight size={16} strokeWidth={2.2} />
+          </div>
+        </div>
+
       </div>
     </section>
   );
