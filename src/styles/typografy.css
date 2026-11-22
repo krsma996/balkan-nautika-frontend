@@ -124,6 +124,8 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 /* Focus */
-.form-typography {
-  button:focus-visible
+
+.form-typography button:focus-visible {
+  outline: 3px solid rgba(56, 81, 112, 0.45);
+  outline-offset: 4px;
 }

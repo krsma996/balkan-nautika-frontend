@@ -1,301 +1,242 @@
+import type { FormEvent, ReactNode } from "react";
+import { useState } from "react";
+import {
+  Anchor,
+  Compass,
+  ShieldCheck,
+  SlidersHorizontal,
+  Waves,
+} from "lucide-react";
+
+import { BoatBeam } from "./search-boat-categories/BoatBeam";
 import { BoatCondition } from "./search-boat-categories/BoatCondition";
 import { BoatFeaturesCheckBox } from "./search-boat-categories/BoatFeaturesCheckBox";
-import { BoatType } from "./search-boat-categories/BoatType";
+import { BoatFuel } from "./search-boat-categories/BoatFuel";
 import { BoatMaterialType } from "./search-boat-categories/BoatMaterialType";
 import { BoatModels } from "./search-boat-categories/BoatModels";
 import { BoatPrice } from "./search-boat-categories/BoatPrice";
 import { BoatRegion } from "./search-boat-categories/BoatRegion";
 import { BoatSearchButton } from "./search-boat-categories/BoatSearchButton";
-import { BoatFuel } from "./search-boat-categories/BoatFuel";
+import { BoatType } from "./search-boat-categories/BoatType";
 import { BoatYear } from "./search-boat-categories/BoatYear";
-import { BoatBeam } from "./search-boat-categories/BoatBeam";
-import { useState } from "react";
+
+/* ------------------------------------------------------------------ */
+/* Helper: jedan red filtera (naslov levo, polja desno)                */
+/* ------------------------------------------------------------------ */
+
+type FilterGroupProps = {
+  id: string;
+  title: string;
+  description: string;
+  children: ReactNode;
+};
+
+const FilterGroup = ({ id, title, description, children }: FilterGroupProps) => (
+  <div
+    role="group"
+    aria-labelledby={id}
+    className="
+      grid gap-x-10 gap-y-6
+      px-5 py-8
+      sm:px-8
+      xl:grid-cols-[230px_minmax(0,1fr)]
+    "
+  >
+    <div className="xl:pt-1">
+      <h3
+        id={id}
+        className="text-lg font-bold tracking-tight text-[#222831]"
+      >
+        {title}
+      </h3>
+      <p className="mt-1.5 max-w-xs text-sm leading-6 text-[#385170]">
+        {description}
+      </p>
+    </div>
+
+    <div>{children}</div>
+  </div>
+);
+
+/* ------------------------------------------------------------------ */
+/* Komponenta                                                          */
+/* ------------------------------------------------------------------ */
+
+const highlights = [
+  { icon: ShieldCheck, label: "Jednostavna pretraga" },
+  { icon: Compass, label: "Plovila širom Srbije" },
+  { icon: Waves, label: "Sve na jednom mestu" },
+];
 
 export const SearchBoatForm = () => {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-  };
-
   const [boatType, setBoatType] = useState("");
   const [boatModel, setBoatModel] = useState("");
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+  };
 
   const handleTypeChange = (type: string) => {
     setBoatType(type);
     setBoatModel(""); // resetuj model kad se promeni tip
   };
 
-
   return (
     <section
       aria-labelledby="boat-search-title"
-      className="
-        relative
-        isolate
-        overflow-hidden
-        px-4
-        py-16
-        sm:px-6
-        sm:py-20
-        lg:px-8
-        lg:py-24
-      "
+      className="px-4 pb-16 pt-10 sm:px-6 sm:pb-20 sm:pt-14 lg:px-8 lg:pb-24 lg:pt-16"
     >
-      {/* Background decoration */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          left-1/2
-          top-8
-          -z-10
-          h-[520px]
-          w-[520px]
-          -translate-x-1/2
-          rounded-full
-          bg-[#385170]/10
-          blur-[130px]
-        "
-      />
-
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          -right-40
-          bottom-0
-          -z-10
-          h-96
-          w-96
-          rounded-full
-          bg-[#6b88a8]/10
-          blur-[120px]
-        "
-      />
-
       <div className="mx-auto max-w-7xl">
-        {/* Header */}
-        <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-12">
-          <h2
-            id="boat-search-title"
-            className="
-              text-3xl
-              font-bold
-              tracking-tight
-              text-[#222831]
-              sm:text-4xl
-              lg:text-5xl
-            "
-          >
-            Pronađite plovilo
-            <span
+        {/* ---------------------------------------------------------- */}
+        {/* HEADER                                                     */}
+        {/* ---------------------------------------------------------- */}
+        <header className="mb-10 grid gap-8 lg:mb-12 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end lg:gap-16">
+          <div>
+            <p className="flex items-center gap-2 text-sm font-medium text-[#385170]">
+              <Anchor size={16} strokeWidth={1.9} aria-hidden="true" />
+              Nautika oglasi
+            </p>
+
+            <h2
+              id="boat-search-title"
               className="
-                ml-2
-                bg-gradient-to-r
-                from-[#385170]
-                to-[#6b88a8]
-                bg-clip-text
-                text-transparent
+                mt-4 max-w-3xl
+                text-4xl font-bold leading-[1.05] tracking-tight
+                text-[#222831]
+                sm:text-5xl lg:text-6xl
               "
             >
-              po vašoj meri
-            </span>
-          </h2>
+              Pronađite plovilo koje vas vodi dalje.
+            </h2>
 
-          <p
+            <p className="mt-5 max-w-2xl text-base leading-7 text-[#222831]/75 lg:text-lg lg:leading-8">
+              Istražite ponudu plovila na jednom mestu. Od manjih čamaca do
+              luksuznih jahti, pronađite ono što odgovara vašim potrebama.
+            </p>
+          </div>
+
+          <ul
             className="
-              mx-auto
-              mt-4
-              max-w-2xl
-              text-base
-              leading-7
-              text-[#385170]/80
-              sm:text-lg
+              flex flex-wrap gap-x-8 gap-y-4
+              lg:flex-col lg:gap-y-4
+              lg:border-l lg:border-[#385170]/20 lg:pl-8
             "
           >
-            Podesite kriterijume pretrage i brzo pronađite plovila koja
-            odgovaraju vašem budžetu, lokaciji i načinu plovidbe.
-          </p>
-        </div>
+            {highlights.map(({ icon: Icon, label }) => (
+              <li key={label} className="flex items-center gap-3">
+                <span
+                  className="
+                    flex h-9 w-9 shrink-0 items-center justify-center
+                    rounded-lg border border-[#385170]/15 bg-white
+                    text-[#385170]
+                  "
+                >
+                  <Icon size={18} strokeWidth={1.8} aria-hidden="true" />
+                </span>
+                <span className="text-sm font-medium text-[#222831]">
+                  {label}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </header>
 
-        {/* Form card */}
+        {/* ---------------------------------------------------------- */}
+        {/* SEARCH PANEL                                               */}
+        {/* ---------------------------------------------------------- */}
         <div
           className="
-            relative
-            overflow-hidden
-            rounded-[32px]
-            border
-            border-[#385170]/15
-            bg-[#e7eaf6]/80
-            shadow-[0_24px_70px_rgba(34,40,49,0.14)]
-            backdrop-blur-2xl
+            overflow-hidden rounded-xl
+            border border-[#385170]/15 bg-white
+            shadow-[0_1px_2px_rgba(34,40,49,0.05),0_12px_32px_-12px_rgba(34,40,49,0.18)]
+            animate-[fadeUp_.7s_ease-out_both]
           "
         >
-          {/* Top accent */}
-          <div
-            aria-hidden="true"
-            className="
-              h-1
-              w-full
-              bg-gradient-to-r
-              from-[#222831]
-              via-[#385170]
-              to-[#6b88a8]
-            "
-          />
+          {/* Panel header */}
+          <div className="flex items-center justify-between gap-4 bg-[#222831] px-5 py-4 sm:px-8">
+            <div className="flex items-center gap-3">
+              <span
+                className="
+                  flex h-9 w-9 shrink-0 items-center justify-center
+                  rounded-lg bg-white/10 text-white
+                "
+              >
+                <SlidersHorizontal
+                  size={18}
+                  strokeWidth={1.8}
+                  aria-hidden="true"
+                />
+              </span>
+              <h3 className="text-lg font-bold tracking-tight text-white sm:text-xl">
+                Pretraga plovila
+              </h3>
+            </div>
+
+            <p className="hidden text-sm text-white/70 sm:block">
+              Popunite samo ono što vas zanima.
+            </p>
+          </div>
 
           <form
             className="form-typography"
             onSubmit={handleSubmit}
             noValidate
           >
-            <div className="p-5 sm:p-8 lg:p-10">
-              {/* Primary filters */}
-              <fieldset>
-                <legend className="sr-only">
-                  Osnovni kriterijumi pretrage
-                </legend>
-
-                <div className="mb-6 flex items-center gap-3">
-                  <span
-                    aria-hidden="true"
-                    className="
-                      flex
-                      h-8
-                      w-8
-                      items-center
-                      justify-center
-                      rounded-full
-                      bg-[#385170]
-                      text-xs
-                      font-bold
-                      text-[#e7eaf6]
-                    "
-                  >
-                    1
-                  </span>
-
-                  <div>
-                    <h3 className="text-base font-bold text-[#222831]">
-                      Osnovni kriterijumi
-                    </h3>
-
-                    <p className="text-sm text-[#385170]/70">
-                      Izaberite vrstu, model, cenu i pogonsko gorivo.
-                    </p>
-                  </div>
-                </div>
-
-                <div
-                  className="
-                    grid
-                    grid-cols-1
-                    gap-x-6
-                    gap-y-5
-                    md:grid-cols-2
-                    xl:grid-cols-4
-                  "
-                >
+            <div className="divide-y divide-[#385170]/10">
+              {/* Osnovni kriterijumi */}
+              <FilterGroup
+                id="primary-filters-title"
+                title="Osnovni kriterijumi"
+                description="Definišite kakvo plovilo tražite."
+              >
+                <div className="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2">
                   <BoatType value={boatType} onChange={handleTypeChange} />
-                  <BoatModels  boatType={boatType} value={boatModel} onChange={setBoatModel}/>
+                  <BoatModels
+                    boatType={boatType}
+                    value={boatModel}
+                    onChange={setBoatModel}
+                  />
                   <BoatPrice />
                   <BoatFuel />
                 </div>
-              </fieldset>
+              </FilterGroup>
 
-              <div
-                aria-hidden="true"
-                className="my-9 h-px bg-[#385170]/15"
-              />
-
-              {/* Additional filters */}
-              <fieldset>
-                <legend className="sr-only">
-                  Dodatni kriterijumi pretrage
-                </legend>
-
-                <div className="mb-6 flex items-center gap-3">
-                  <span
-                    aria-hidden="true"
-                    className="
-                      flex
-                      h-8
-                      w-8
-                      items-center
-                      justify-center
-                      rounded-full
-                      border
-                      border-[#385170]/25
-                      bg-[#385170]/10
-                      text-xs
-                      font-bold
-                      text-[#385170]
-                    "
-                  >
-                    2
-                  </span>
-
-                  <div>
-                    <h3 className="text-base font-bold text-[#222831]">
-                      Dodatni kriterijumi
-                    </h3>
-
-                    <p className="text-sm text-[#385170]/70">
-                      Precizirajte godište, lokaciju, stanje i karakteristike.
-                    </p>
-                  </div>
-                </div>
-
-                <div
-                  className="
-                    grid
-                    grid-cols-1
-                    gap-x-6
-                    gap-y-5
-                    md:grid-cols-2
-                    xl:grid-cols-4
-                  "
-                >
+              {/* Dodatni kriterijumi */}
+              <FilterGroup
+                id="secondary-filters-title"
+                title="Dodatni kriterijumi"
+                description="Sužite izbor prema karakteristikama plovila."
+              >
+                <div className="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2 xl:grid-cols-3">
                   <BoatYear />
                   <BoatRegion />
                   <BoatCondition />
                   <BoatMaterialType />
                   <BoatBeam />
                 </div>
-              </fieldset>
+              </FilterGroup>
 
-              <BoatFeaturesCheckBox />
+              {/* Oprema */}
+              <FilterGroup
+                id="features-filters-title"
+                title="Oprema"
+                description="Izaberite opremu koju plovilo mora da ima."
+              >
+                <BoatFeaturesCheckBox />
+              </FilterGroup>
             </div>
 
-            <BoatSearchButton />
+            {/* Action bar */}
+            <div
+              className="
+                border-t border-[#385170]/15
+                bg-[#e7eaf6]/60
+                px-5 py-5 sm:px-8 sm:py-6
+              "
+            >
+              <BoatSearchButton />
+            </div>
           </form>
-        </div>
-
-        {/* Footer hint */}
-        <div
-          className="
-            mt-6
-            flex
-            items-center
-            justify-center
-            gap-3
-            text-center
-            text-sm
-            text-[#385170]/70
-          "
-        >
-          <span
-            aria-hidden="true"
-            className="h-px w-8 bg-[#385170]/25"
-          />
-
-          Pretražite oglase plovila prema kriterijumima koji su vam važni
-
-          <span
-            aria-hidden="true"
-            className="h-px w-8 bg-[#385170]/25"
-          />
         </div>
       </div>
     </section>
